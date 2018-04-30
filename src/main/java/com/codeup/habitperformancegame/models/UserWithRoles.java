@@ -38,4 +38,4 @@ public class UserWithRoles extends User implements UserDetails {
         return true;
     }
 }
-}
+

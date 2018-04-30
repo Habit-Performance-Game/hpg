@@ -2,11 +2,9 @@ package com.codeup.habitperformancegame.Services;
 
 
 
+import com.codeup.habitperformancegame.models.UserWithRoles;
 import com.codeup.habitperformancegame.repositories.UserRepository;
 import com.codeup.habitperformancegame.models.User;
-import com.example.blog.models.User;
-import com.example.blog.models.UserWithRoles;
-import com.example.blog.repositories.UserRepository;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
