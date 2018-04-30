@@ -1,6 +1,6 @@
 package com.codeup.habitperformancegame.controllers;
 
-import com.codeup.habitperformancegame.UserRepository;
+import com.codeup.habitperformancegame.repositories.UserRepository;
 import com.codeup.habitperformancegame.models.User;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
