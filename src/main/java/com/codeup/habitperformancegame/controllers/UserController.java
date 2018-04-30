@@ -14,9 +14,9 @@ public class UserController {
     private UserRepository userDao;
     private PasswordEncoder passwordEncoder;// to be used when implimenting security
 
-    public UserController(UserRepository userDao){
+    public UserController(UserRepository userDao, PasswordEncoder passwordEncoder){
         this.userDao = userDao;
-
+        this.passwordEncoder = passwordEncoder;
     }
 
     //get register page
@@ -29,8 +29,8 @@ public class UserController {
     //save user info
     @PostMapping("/register")
     public String saveUser(@ModelAttribute User user){
-        String password = user.getPassword();
-        user.setPassword(password);
+        String hash = passwordEncoder.encode(user.getPassword());
+        user.setPassword(hash);
         userDao.save(user);
         return "redirect:/login";
     }
