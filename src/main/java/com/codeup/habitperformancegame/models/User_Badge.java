@@ -6,7 +6,7 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-@Table(name = "user-badges")
+@Table(name = "user_badges")
 public class User_Badge {
 
     @Id@GeneratedValue
