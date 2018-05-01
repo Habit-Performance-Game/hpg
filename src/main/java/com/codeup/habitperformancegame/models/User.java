@@ -29,7 +29,7 @@ public class User {
     @Column
     private String lastName;
 
-    @Column(columnDefinition = "text")
+    @Column
     private String bio;
 
     @ManyToOne
