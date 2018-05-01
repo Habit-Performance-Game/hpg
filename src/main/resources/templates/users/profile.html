@@ -1,13 +1,48 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
-<head th:replace="partials/header :: header('Register')"></head>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="partials/header :: header('Profile')" />
 <body>
 
 
 <h1>Welcome to your profile</h1>
 <div sec:authorize="isAuthenticated()">
-    Hi <span th:text="${#authentication.principal.email}"/>!
+    Hi <span th:text="${#authentication.principal.email}" />!
     hello
+</div>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-4">
+            <div class="col-sm-12">
+                <div class="card">
+                    <div class="card-body">Drink Water</div>
+                    <a href="#" class="btn btn-primary">complete</a>
+                    <a href="#" class="btn btn-alert">delete</a>
+                </div>
+                <div class="card">
+                    <div class="card-body">Pushups</div>
+                </div>
+                <div class="card">
+                    <div class="card-body">Drink beer</div>
+                </div>
+                <div class="card">
+                    <div class="card-body">Meditate</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="card h-75">
+                <img class="card-img-top" src="http://pixelartmaker.com/art/e67839ecc7ea933.png" alt="Card image cap" style="width:70px;height:70px;"/>
+                <div class="card-body">
+                    Username: <span th:text="${#authentication.principal.username}" />
+                </div>
+            </div>
+            <div class="card force-to-bottom">
+                <div class="card-body">Join Clan</div>
+            </div>
+        </div>
+    </div>
 </div>
 </body>
 </html>
