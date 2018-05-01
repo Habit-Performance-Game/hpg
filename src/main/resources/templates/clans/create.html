@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="partials/header :: header('Create Clan')"> </head>
+<body>
+
+<form th:action="@{/clan/create}" th:method="post" th:object="${clan}">
+    <div class="form-group">
+        Clan Name:
+        <input class="form-control" th:field="*{name}" />
+    </div>
+    <input class="btn btn-success" value="Submit" type="submit" />
+</form>
+</body>
+</html>
