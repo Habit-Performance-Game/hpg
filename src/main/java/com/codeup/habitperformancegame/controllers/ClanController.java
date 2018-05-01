@@ -29,9 +29,9 @@ public class ClanController {
 
     @PostMapping("/clan/create")
     public String createClanSubmit(@ModelAttribute Clan clan){
-        User curUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        clan.setOwner_id(curUser.getId());
+//        User curUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+//        clan.setOwner_id(curUser.getId());
         clanDao.save(clan);
-        return null;
+        return "redirect:/";
     }
 }
