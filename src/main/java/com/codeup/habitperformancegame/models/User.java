@@ -29,7 +29,7 @@ public class User {
     @Column(nullable = false)
     private String lastName;
 
-    @Column(columnDefinition = "text",nullable = false)
+    @Column(columnDefinition = "text")
     private String bio;
 
     @ManyToOne
