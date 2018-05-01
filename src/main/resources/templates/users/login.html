@@ -1,22 +1,27 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head th:replace="partials/header :: header('Login')">
+</head>
 <body>
 
 <div class="container">
-<form th:action="@{/login}" method="post">
-    <div class="row">
-        <input class="col-xs-6 col-xs-offset-3" id="username" name="username" type="text" placeholder="Username..."/>
-    </div>
 
-    <div class="row">
-        <input class="col-xs-6 col-xs-offset-3"  id="password" name="password" type="password" placeholder="Password..." />
-    </div>
-    <div class="row">
-        <input class="btn btn-success col-xs-2 col-xs-offset-5" type="submit" value="Log In" />
-    </div>
-</form>
+    <h1 class="text-center"> Log In </h1>
+
+
+    <form th:action="@{/login}" method="post">
+        <div class="row">
+            <input class="col-xs-6 col-xs-offset-3" id="username" name="username" type="text" placeholder="Username..."/>
+        </div>
+
+        <div class="row">
+            <input class="col-xs-6 col-xs-offset-3"  id="password" name="password" type="password" placeholder="Password..." />
+        </div>
+        <div class="row">
+            <input class="btn btn-success col-xs-2 col-xs-offset-5" type="submit" value="Log In" />
+        </div>
+    </form>
+    <a href="/register" class="btn btn-info col-xs-2 col-xs-offset-5" role="button">SignUp</a>
 </div>
-
 </body>
 </html>
