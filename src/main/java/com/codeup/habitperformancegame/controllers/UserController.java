@@ -2,6 +2,7 @@ package com.codeup.habitperformancegame.controllers;
 
 import com.codeup.habitperformancegame.repositories.UserRepository;
 import com.codeup.habitperformancegame.models.User;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -37,5 +38,12 @@ public class UserController {
 
     @GetMapping("/login")
     public String showLoginForm()  { return "users/login"; }
+
+    @GetMapping("/profile")
+    public String showProfilePage(){
+        User curUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        System.out.println(curUser.getUsername());
+        return "users/profile";
+    }
 
 }

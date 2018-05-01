@@ -1,8 +1,16 @@
 <!DOCTYPE html>
+<<<<<<< HEAD
 <html xmlns:th="http://www.thymeleaf.org">
 <head th:replace="partials/header :: header('Profile')">
 </head>
 <body>
+
+
+<h1>Welcome to your profile</h1>
+<div sec:authorize="isAuthenticated()">
+    Hi <span th:text="${#authentication.principal.email}"/>!
+    hello
+</div>
 
 <div class="container">
 
