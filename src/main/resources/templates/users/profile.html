@@ -2,11 +2,12 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head th:replace="partials/header :: header('Profile')" />
 <body>
+<nav th:replace="partials/navbar :: navbar"></nav>
 
 
 <h1>Welcome to your profile</h1>
 <div sec:authorize="isAuthenticated()">
-    Hi <span th:text="${#authentication.principal.email}" />!
+    Hi <span th:text="${#authentication.principal.username}" />!
     hello
 </div>
 
