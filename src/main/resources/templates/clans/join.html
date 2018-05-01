@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head th:replace="partials/header :: header('Join a Clan')"></head>
+<body>
+
+<h2>Join a Clan!!</h2>
+<div>
+    <p th:if="${user.clan}==null">
+        You are not part of a clan.
+    </p>
+    <p th:if="${user.clan}!=null">
+        You are currently part of Clan: <span th:text="${user.clan.name}"/>
+    </p>
+
+    <p>Here is a list of the current clans</p>
+    <form th:action="@{/clan/join}" th:method="post">
+        <div class="displayClans">
+            <select  name="clan">
+                <option th:each="clan : ${clans}" th:text="${clan.name}" th:value="${clan.id}"></option>
+            </select>
+        </div>
+        <input class="btn btn-success" type="submit" value="Join"/>
+    </form>
+</div>
+
+</body>
+</html>

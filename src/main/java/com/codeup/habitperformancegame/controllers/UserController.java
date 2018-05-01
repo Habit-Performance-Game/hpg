@@ -41,8 +41,6 @@ public class UserController {
 
     @GetMapping("/profile")
     public String showProfilePage(){
-        User curUser = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        System.out.println(curUser.getUsername());
         return "users/profile";
     }
 
