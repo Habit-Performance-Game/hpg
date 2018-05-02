@@ -26,7 +26,7 @@ public class ClanController {
 
     @GetMapping("/clan/create")
     public String createClanForm(Model model){
-        model.addAttribute("clan",new Clan());
+        model.addAttribute("emptyClan",new Clan());
         return "clans/create";
     }
 
@@ -35,12 +35,13 @@ public class ClanController {
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         clan.setOwner_id(user.getId());
         clanDao.save(clan);
-        return "users/profile";
+        return "redirect:/clan/join";
     }
 
     @GetMapping("/clan/join")
     public String joinAClan(Model model){
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        model.addAttribute("emptyClan",new Clan());
         model.addAttribute("user",userDao.findOne(user.getId()));
         model.addAttribute("clans", clanDao.findAll());
         return "clans/join";
