@@ -1,5 +1,7 @@
 package com.codeup.habitperformancegame.controllers;
 
+import com.codeup.habitperformancegame.models.Clan;
+import com.codeup.habitperformancegame.repositories.ClanRepository;
 import com.codeup.habitperformancegame.repositories.UserRepository;
 import com.codeup.habitperformancegame.models.User;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -8,16 +10,19 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class UserController {
     private UserRepository userDao;
+    private ClanRepository clanDao;
     private PasswordEncoder passwordEncoder;// to be used when implimenting security
 
-    public UserController(UserRepository userDao, PasswordEncoder passwordEncoder){
+    public UserController(UserRepository userDao, PasswordEncoder passwordEncoder,ClanRepository clanDao){
         this.userDao = userDao;
         this.passwordEncoder = passwordEncoder;
+        this.clanDao = clanDao;
     }
 
     //get register page
@@ -40,11 +45,19 @@ public class UserController {
     public String showLoginForm()  { return "users/login"; }
 
     @GetMapping("/profile")
-    public String showProfilePage(){
+    public String showProfilePage(Model model){
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        model.addAttribute("user",userDao.findOne(user.getId()));
         return "users/profile";
     }
 
-    @GetMapping("/clan")
-    public String showClanPage() { return "clans/clanProfile";}
+    @GetMapping("/clan/{id}")
+    public String showClanPage(Model model, @PathVariable long id) {
+        System.out.println("before");
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        model.addAttribute("user",userDao.findOne(user.getId()));
+        model.addAttribute("clan", clanDao.findOne(id));
+        System.out.println("after");
+        return "clans/clanProfile";}
 
 }

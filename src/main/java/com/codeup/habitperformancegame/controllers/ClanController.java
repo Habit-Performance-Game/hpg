@@ -52,6 +52,6 @@ public class ClanController {
         User sqlUser = userDao.findOne(user.getId());
         sqlUser.setClan(clanDao.findOne(Long.parseLong(clan)));
         userDao.save(sqlUser);
-        return "users/profile";
+        return "redirect:/profile";
     }
 }

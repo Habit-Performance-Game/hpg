@@ -5,7 +5,7 @@
 <body>
 <nav th:replace="partials/navbar :: navbar"></nav>
 
-<h1 class="text-center">Clan Name</h1>
+<h1 class="text-center" th:text="${clan.name}"></h1>
 
 
     <div class="row">
@@ -13,13 +13,7 @@
             <div class="col-sm-12">
                 <h2 class="text-center">Members</h2>
                 <ul class="list-group">
-                    <li class="list-group-item">member</li>
-                    <li class="list-group-item">member</li>
-                    <li class="list-group-item">member</li>
-                    <li class="list-group-item">member</li>
-                    <li class="list-group-item">member</li>
-                    <li class="list-group-item">member</li>
-                    <li class="list-group-item">member</li>
+                    <li class="list-group-item" th:each="member : ${clan.users}" th:text="${member.username}"></li>
                 </ul>
             </div>
         </div>
