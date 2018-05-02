@@ -22,21 +22,9 @@
     <ul class="list-group">
         <li th:each="clan : ${clans}" class="list-group-item d-flex justify-content-between align-items-center">
             <a href="" class="listOfClans" th:text="${clan.name}"></a>
-            <small><span th:text="${clan.users.size()}"></span> Members <i th:attr="data-id=${clan.id}" class="fas fa-user-plus"></i></small>
+            <small><span th:text="${clan.users.size()}"></span> Members <i th:attr="data-id=${clan.id},data-name=${clan.name}" class="fas fa-user-plus"></i></small>
         </li>
     </ul>
-
-        <!---->
-    <form id="joinClanForm" th:action="@{/clan/join}" th:method="post">
-        <div class="displayClans">
-            <!--<select  name="clan">-->
-                <!--<option th:each="clan : ${clans}" th:text="${clan.name}" th:value="${clan.id}"></option>-->
-            <!--</select>-->
-        </div>
-        <input id="clanValueInput" type="hidden" name="clan" value=""/>
-        <input class="btn btn-success" type="submit" value="Join"/>
-    </form>
-
 
 </div>
 
@@ -49,8 +37,33 @@
     <button id="openCreateClanForm">Create Clan</button>
     <div th:replace="clans/create :: createClan"></div>
 
-
 </div>
+
+    <!--###############          THis is the modal                  ###############-->
+    <div class="modal fade" id="joinClanModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalTitle"></h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    You are about to join clan: <span id="modalClanTitle"></span>
+                    <form id="joinClanForm" th:action="@{/clan/join}" th:method="post">
+                        <input id="clanValueInput" type="hidden" name="clan" value=""/>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button id="submitJoinClan" type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!---->
+
 </div>
 </div>
 

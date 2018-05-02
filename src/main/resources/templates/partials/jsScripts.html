@@ -8,6 +8,8 @@
 
 <div th:fragment="scripts">
 <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
 <script>
     $('#openCreateClanForm').click(function () {
         $('#createClanForm').toggle();
@@ -23,12 +25,31 @@
     );
 
     $('i').click(function(){
-        if(confirm("Do you want to join this Clan?")){
-            var id = $(this).attr('data-id');
-            $('#clanValueInput').val(id);
-            $('#joinClanForm').submit();
-            console.log(id);
+        var id = $(this).attr('data-id');
+        var name = $(this).attr('data-name');
+        $('#modalClanTitle, #modalTitle').text(name);
+        $('#clanValueInput').val(id);
+        $('#joinClanModal').modal('show');
+    });
+
+    $('#submitJoinClan').click(function () {
+        $('#joinClanForm').submit();
+    })
+
+    $('#submitNewClanForm').click(function (event) {
+        var pattern = /[^a-z0-9\s]/gi;
+        var word = $('#createClanForm #name').val();
+        if ($.trim(word)=="") {
+            $( "#createClanSpan" ).text( "Must enter text!" ).show().fadeOut( 2000 );
+            event.preventDefault();
+            return;
         }
+        if(pattern.test(word)){
+            $("#createClanSpan").text( "Only letters and numbers!" ).show().fadeOut( 2000 );
+            event.preventDefault();
+            return;
+        }
+        $( "#createClanSpan" ).text( "Validated..." ).show();
     })
 
 
