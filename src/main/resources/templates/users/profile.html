@@ -42,7 +42,8 @@ git
                     Username: <span th:text="${#authentication.principal.username}" />
                 </div>
                 <div class="card-body">
-                    Member of Clan:
+                    Member of Clan: <span th:if="${user.clan} == null"><em>click below to join a clan</em></span>
+                    <span th:if="${user.clan} != null" th:text="${user.clan.name}"></span>
                     <br />
                     Badges:
                     <div class="justify-content-between">
