@@ -3,12 +3,14 @@
 <head th:replace="partials/header :: header('Create Clan')"> </head>
 <body>
 
-<form th:action="@{/clan/create}" th:method="post" th:object="${clan}">
-    <div class="form-group">
-        Clan Name:
-        <input class="form-control" th:field="*{name}" />
-    </div>
-    <input class="btn btn-success" value="Submit" type="submit" />
-</form>
+<div id="createClanForm" class="hiddenElement" th:fragment="createClan">
+    <form th:action="@{/clan/create}" th:method="post" th:object="${emptyClan}">
+        <div class="form-group">
+            Clan Name:
+            <input class="form-control" th:field="*{name}" />
+        </div>
+        <input class="btn btn-success" value="Submit" type="submit" />
+    </form>
+</div>
 </body>
 </html>
