@@ -4,10 +4,11 @@
 <head th:replace="partials/header :: header('Login')"/>
 <body>
 
+<nav th:replace="partials/navbar :: navbar"></nav>
+
 <div class="container">
 
     <h1 class="text-center"> Log In </h1>
-
 
     <form th:action="@{/login}" method="post">
         <div class="row">
