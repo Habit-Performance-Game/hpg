@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 <head th:replace="partials/header :: header('Profile')" />
 <body>
 <nav th:replace="partials/navbar :: navbar"></nav>
@@ -50,7 +50,7 @@ git
                     </div>
                 </div>
             </div>
-            <a href="#" class="btn btn-primary btn-block">Join a Clan</a>
+            <a href="/clan/join" class="btn btn-primary btn-block">Join a Clan</a>
         </div>
     </div>
 </div>

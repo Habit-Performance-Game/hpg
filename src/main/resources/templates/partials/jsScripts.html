@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+</head>
+<body>
+
+<div th:fragment="scripts">
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script>
+    $('#openCreateClanForm').click(function () {
+        $('#createClanForm').toggle();
+    });
+
+    $('#openCreateClanForm, i').hover(
+        function() {
+            $(this).css('cursor', 'pointer');
+        },
+        function() {
+            $(this).css('cursor', 'none');
+        }
+    );
+
+    $('i').click(function(){
+        if(confirm("Do you want to join this Clan?")){
+            var id = $(this).attr('data-id');
+            $('#clanValueInput').val(id);
+            $('#joinClanForm').submit();
+            console.log(id);
+        }
+    })
+
+
+</script>
+
+
+
+</div>
+</body>
+</html>

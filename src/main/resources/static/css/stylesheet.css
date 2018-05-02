@@ -11,3 +11,12 @@
     bottom: 0%;
     width: 100%;
 }
+
+/******************* CSS for hiding ***************************************/
+.hiddenElement{
+    display: none;
+}
+.listOfClans{
+    color: black;
+    font-weight: bold;
+}
