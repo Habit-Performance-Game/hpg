@@ -44,4 +44,7 @@ public class UserController {
         return "users/profile";
     }
 
+    @GetMapping("/clan")
+    public String showClanPage() { return "clans/clanProfile";}
+
 }
