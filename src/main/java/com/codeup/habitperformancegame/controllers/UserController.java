@@ -25,6 +25,9 @@ public class UserController {
         this.clanDao = clanDao;
     }
 
+    @GetMapping("/")
+    public String showHomePage(){ return "home";}
+
     //get register page
     @GetMapping("/register")
     public String showRegisterForm(Model model){
