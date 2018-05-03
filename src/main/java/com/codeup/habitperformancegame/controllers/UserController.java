@@ -26,7 +26,13 @@ public class UserController {
     }
 
     @GetMapping("/")
-    public String showHomePage(){ return "home";}
+    public String showHomePage(Model model){
+        if (SecurityContextHolder.getContext().getAuthentication().getPrincipal().equals("anonymousUser")){
+            return "home";
+        }
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        model.addAttribute("user",userDao.findOne(user.getId()));
+        return "home";}
 
     //get register page
     @GetMapping("/register")
