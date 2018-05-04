@@ -20,8 +20,8 @@
         <tbody>
         <tr th:each="message,iterStat : ${user.created_messages}">
             <th class="messageNumber" scope="row" th:text="${iterStat.count}"></th>
-            <td th:text="${message.title}"></td>
-            <td><span th:each="receiver : ${message.sent_to}" th:text="${receiver.username}"> , </span></td>
+            <td><a th:href="@{'/messages/' + ${message.id}}" th:text="${message.title}"></a></td>
+            <td class="sentToColumnNames"><span th:each="receiver : ${message.sent_to}" th:text="${receiver.username} + ', '"> </span></td>
             <td th:text="${message.created_on}"></td>
         </tr>
         </tbody>
