@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head th:replace="partials/header :: header('Messages')"></head>
+<body>
+<nav th:replace="partials/navbar :: navbar"></nav>
+
+<div class="container">
+<ul class="nav nav-tabs" th:fragment="messageNav">
+    <li class="nav-item">
+        <a class="nav-link messageLinks" href="/messages">Inbox</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link messageLinks" href="/messages/sent">Sent Messages</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link messageLinks" href="/messages/create">New Message</a>
+    </li>
+</ul>
+
+    <!--<h1>Here are your messages</h1>-->
+    <table class="table">
+        <thead class="thead-dark">
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Title</th>
+            <th scope="col">Name of Sender</th>
+            <th scope="col">Date</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="message,iterStat : ${user.messages}">
+            <th class="messageNumber" scope="row" th:text="${iterStat.count}"></th>
+            <td th:text="${message.title}"></td>
+            <td th:text="${message.created_by.username}"></td>
+            <td th:text="${message.created_on}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="hiddenElement" th:replace="partials/jsScripts :: scripts"></div>
+</body>
+</html>
