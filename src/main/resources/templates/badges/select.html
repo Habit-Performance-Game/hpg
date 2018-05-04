@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head th:replace="partials/header :: header('Habit Select')" />
+<body>
+<nav th:replace="partials/navbar :: navbar"></nav>
+
+
+<h1>Please select a new habit.</h1>
+<div sec:authorize="isAuthenticated()">
+</div>
+
+
+
+
+
+
+</body>
+</html>

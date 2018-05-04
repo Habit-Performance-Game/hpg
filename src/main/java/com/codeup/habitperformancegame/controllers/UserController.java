@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 public class UserController {
     private UserRepository userDao;
     private ClanRepository clanDao;
-    private PasswordEncoder passwordEncoder;// to be used when implimenting security
+    private PasswordEncoder passwordEncoder;// to be used when implementing security
 
     public UserController(UserRepository userDao, PasswordEncoder passwordEncoder,ClanRepository clanDao){
         this.userDao = userDao;
