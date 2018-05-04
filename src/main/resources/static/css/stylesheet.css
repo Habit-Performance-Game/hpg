@@ -24,3 +24,20 @@
 #createClanSpan{
     color: red;
 }
+
+#announcements{
+    height: 100%;
+}
+#announcementsHolder{
+    margin-bottom: 15px;
+}
+#announceText{
+    display: block;
+    width: 95%;
+    height: 80%;
+    resize: none;
+    margin: auto;
+}
+#saveAnnouncements{
+    margin: 5px auto;
+}
