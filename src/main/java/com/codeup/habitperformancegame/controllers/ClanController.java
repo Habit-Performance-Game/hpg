@@ -8,10 +8,7 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class ClanController {
@@ -53,5 +50,15 @@ public class ClanController {
         sqlUser.setClan(clanDao.findOne(Long.parseLong(clan)));
         userDao.save(sqlUser);
         return "redirect:/profile";
+    }
+
+    @PostMapping("/clan/announcements/save")
+    public String saveClanAnnouncements(@RequestParam String announcements){
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        User sqlUser = userDao.findOne(user.getId());
+        Clan clan = clanDao.findOne(sqlUser.getClan().getId());
+        clan.setAnnouncements(announcements);
+        clanDao.save(clan);
+        return "redirect:/clan/" + clan.getId();
     }
 }

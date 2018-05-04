@@ -15,7 +15,7 @@
         $('#createClanForm').toggle();
     });
 
-    $('#openCreateClanForm, i').hover(
+    $('#openCreateClanForm, #editAnnouncements, i').hover(
         function() {
             $(this).css('cursor', 'pointer');
         },
@@ -100,6 +100,13 @@
     if(window.location.pathname.includes("/messages")){
         addToNames();
     }
+
+    $('#editAnnouncements').click(function () {
+        $('#announceText').attr('readonly',false)
+        $('#saveAnnouncements').removeClass('hiddenElement');
+        $('#saveAnnouncements').css('display','block');
+    })
+    $('#announceText').height($('#announcements').height()*.8)
 
 
 

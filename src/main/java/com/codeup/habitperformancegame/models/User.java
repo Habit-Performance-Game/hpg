@@ -1,6 +1,7 @@
 package com.codeup.habitperformancegame.models;
 
 import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.validator.constraints.NotBlank;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -17,12 +18,15 @@ public class User {
     private long id;
 
     @Column(nullable = false, unique = true)
+    @NotBlank(message = "Must enter a username")
     private String username;
 
     @Column(nullable = false, unique = true)
+    @NotBlank(message = "Must enter an email")
     private String email;
 
     @Column(nullable = false)
+    @NotBlank(message = "Must enter a password")
     private String password;
 
     @Column
