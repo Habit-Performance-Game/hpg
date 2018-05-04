@@ -15,7 +15,7 @@
         $('#createClanForm').toggle();
     });
 
-    $('#openCreateClanForm, i').hover(
+    $('#openCreateClanForm, #editAnnouncements, i').hover(
         function() {
             $(this).css('cursor', 'pointer');
         },
@@ -79,10 +79,36 @@
     }
     if(window.location.pathname == "/messages/sent"){
         $('.messageLinks:eq(1)').addClass("active")
+        $('.sentToColumnNames').each(function(i,e){
+            var names = $(this).children().text();
+            names = names.substr(0,names.length-2);
+            e.innerText=names;
+        })
     }
     if(window.location.pathname == "/messages/create"){
         $('.messageLinks:eq(2)').addClass("active")
     }
+
+    function addToNames() {
+        var names = "";
+        $('.toNames').each(function(){
+            names += $(this).text() +", "
+        });
+            names = names.substr(0,names.length-2);
+        $('#displayFrom2').val(names);
+    }
+    if(window.location.pathname.includes("/messages")){
+        addToNames();
+    }
+
+    $('#editAnnouncements').click(function () {
+        $('#announceText').attr('readonly',false)
+        $('#saveAnnouncements').removeClass('hiddenElement');
+        $('#saveAnnouncements').css('display','block');
+    })
+    $('#announceText').height($('#announcements').height()*.8)
+
+
 
 
 

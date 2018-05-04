@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head th:replace="partials/header :: header('Messages')"></head>
+<body>
+<nav th:replace="partials/navbar :: navbar"></nav>
+
+<div class="container">
+    <ul th:replace="messages/index :: messageNav"></ul>
+
+
+    <!-- this is some spacers-->
+    <div>
+        <form>
+            <div class="form-group">
+                <label for="displayFrom" th:if="${single.created_by.username} != ${user.username}">From:</label>
+                <input id="displayFrom" type="text" readonly="readonly" th:if="${single.created_by.username} != ${user.username}" th:value="${single.created_by.username}" />
+                <label for="displayFrom2" th:if="${single.created_by.username} == ${user.username}">To: </label>
+                <input type="text" id="displayFrom2" readonly="readonly" th:if="${single.created_by.username} == ${user.username}" />
+                <span class="toNames hiddenElement" th:each="receiver : ${single.sent_to}" th:text="${receiver.username}"> </span>
+            </div>
+
+            <div class="form-group">
+                <label for="displayDate">Sent On:</label>
+                <input id="displayDate" type="text" readonly="readonly" th:value="${single.created_on}" />
+            </div>
+
+            <div class="form-group">
+                <label for="title">Title: </label>
+                <input class="form-control" id="title" readonly="readonly" th:value="${single.title}" />
+            </div>
+
+            <div class="form-group">
+                <label for="body">Body: </label>
+                <textarea class="form-control" id="body" readonly="readonly" th:text="${single.body}" cols="30" rows="10"></textarea>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="hiddenElement" th:replace="partials/jsScripts :: scripts"></div>
+</body>
+</html>
