@@ -52,6 +52,39 @@
         $( "#createClanSpan" ).text( "Validated..." ).show();
     })
 
+    $('#addRecipientLink').click(function (event) {
+        event.preventDefault();
+        $('#selectReceiversModal').modal('show');
+    })
+
+    $('#addRecipients').click(function (e) {
+        var receivers = '';
+        var values = [];
+        $(':checkbox[name="receivers"]').prop('checked',false);
+        $(':checkbox[name="receiver"]:checked').each(function(i,e){
+            values.push(parseInt(e.value));
+            receivers += e.id + ", ";
+        })
+        $(':checkbox[name="receivers"]').each(function(index,ele){
+            if(values.includes(parseInt(ele.value))){
+                $(this).prop('checked',true);
+            }
+        })
+        receivers = receivers.substr(0,receivers.length-2);
+        $('#displayRecipients').val(receivers);
+    })
+
+    if(window.location.pathname == "/messages"){
+        $('.messageLinks:eq(0)').addClass("active")
+    }
+    if(window.location.pathname == "/messages/sent"){
+        $('.messageLinks:eq(1)').addClass("active")
+    }
+    if(window.location.pathname == "/messages/create"){
+        $('.messageLinks:eq(2)').addClass("active")
+    }
+
+
 
 </script>
 

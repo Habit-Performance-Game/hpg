@@ -18,6 +18,9 @@ public class Clan {
     @Column(nullable = false)
     private long owner_id;
 
+    @Column(columnDefinition = "text")
+    private String announcements;
+
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "clan")
     private List<User> users;
 

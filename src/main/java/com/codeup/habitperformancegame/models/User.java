@@ -6,6 +6,8 @@ import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
 
+import static javax.persistence.CascadeType.ALL;
+
 @Entity
 @Table(name = "users")
 public class User {
@@ -29,7 +31,7 @@ public class User {
     @Column
     private String lastName;
 
-    @Column
+    @Column(columnDefinition = "text")
     private String bio;
 
     @ManyToOne
@@ -44,8 +46,14 @@ public class User {
     @Column(updatable = false)
     private Date created_on;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
+    @OneToMany(cascade = ALL, mappedBy = "user")
     private List<User_Badge> user_badges;
+
+    @OneToMany(mappedBy = "created_by")
+    private List<Message> created_messages;
+
+    @ManyToMany(mappedBy = "sent_to", fetch = FetchType.LAZY)
+    private List<Message> messages;
 
 //    ##########################         constructors             ########################
 
@@ -70,7 +78,7 @@ public class User {
         this.avatar = avatar;
     }
 
-    public User(String username, String email, String password, String firstName, String lastName, String bio, Avatar avatar, Clan clan, Date created_on, List<User_Badge> user_badges) {
+    public User(String username, String email, String password, String firstName, String lastName, String bio, Avatar avatar, Clan clan, Date created_on, List<User_Badge> user_badges, List<Message> messages, List<Message> created_messages) {
         this.username = username;
         this.email = email;
         this.password = password;
@@ -81,6 +89,8 @@ public class User {
         this.clan = clan;
         this.created_on = created_on;
         this.user_badges = user_badges;
+        this.created_messages = created_messages;
+        this.messages = messages;
     }
 
 //    ##########################         getters and setters      ########################
@@ -173,4 +183,12 @@ public class User {
     public void setUser_badges(List<User_Badge> user_badges) {
         this.user_badges = user_badges;
     }
+
+    public List<Message> getCreated_messages() { return created_messages; }
+
+    public void setCreated_messages(List<Message> created_messages) { this.created_messages = created_messages; }
+
+    public List<Message> getMessages() { return messages; }
+
+    public void setMessages(List<Message> messages) { this.messages = messages; }
 }
