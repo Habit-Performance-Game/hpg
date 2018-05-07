@@ -22,12 +22,13 @@
                             <button type="button" class="btn btn-danger btn-sm">Delete</button>
                         </div>
                     </li>
-                    <li class="list-group-item list-group-item-secondary">Drink until 2am, post on Slack.</li>
-                    <li class="list-group-item list-group-item-light">Save Christmas</li>
-                    <li class="list-group-item list-group-item-secondary">Drink more Water</li>
-                    <li class="list-group-item list-group-item-light">Get Crunk.</li>
-                    <li class="list-group-item list-group-item-secondary">50 pushups.</li>
-                    <li class="list-group-item list-group-item-light">Save $$$ on car insurance.</li>
+                    <li class="list-group-item" th:each="habit : ${habits}">
+                        <span th:text="${habit.getBadge().name}"></span>
+                        <small><span th:text="${habit.getUser_amt()}"></span> of <span th:text="${habit.badge.getReq_amt()}"></span>
+                            <i class="fas fa-plus fa-pull-right"></i>
+                        </small>
+                        <i class="far fa-trash-alt"></i>
+                    </li>
                 </ul>
                     <div>
                         <a href="/habits" class="btn btn-primary btn-block">Get more habits</a>

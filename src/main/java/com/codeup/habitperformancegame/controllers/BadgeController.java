@@ -31,7 +31,8 @@ public class BadgeController {
     public String getHabits(Model model){
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         model.addAttribute("user",userDao.findOne(user.getId()));
-        model.addAttribute("badges", badgeDao.findAll());
+        model.addAttribute("badges", badgeDao.findNotAdded(user.getId()));
+        model.addAttribute("currentBadges", badgeDao.findAdded(user.getId()));
         return "badges/select";
     }
 
