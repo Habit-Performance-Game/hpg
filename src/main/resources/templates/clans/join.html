@@ -22,7 +22,7 @@
     <ul class="list-group">
         <li th:each="clan : ${clans}" class="list-group-item d-flex justify-content-between align-items-center">
             <a href="" class="listOfClans" th:text="${clan.name}"></a>
-            <small><span th:text="${clan.users.size()}"></span> Members <i th:attr="data-id=${clan.id},data-name=${clan.name}" class="fas fa-user-plus"></i></small>
+            <small><span th:text="${clan.users.size()}"></span> Members <i th:attr="data-id=${clan.id},data-name=${clan.name}" class="fas fa-user-plus iJoinClan"></i></small>
         </li>
     </ul>
 

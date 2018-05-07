@@ -2,6 +2,7 @@ package com.codeup.habitperformancegame.controllers;
 
 import com.codeup.habitperformancegame.models.Clan;
 import com.codeup.habitperformancegame.repositories.ClanRepository;
+import com.codeup.habitperformancegame.repositories.UserBadgeRepository;
 import com.codeup.habitperformancegame.repositories.UserRepository;
 import com.codeup.habitperformancegame.models.User;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -64,7 +65,9 @@ public class UserController {
     @GetMapping("/profile")
     public String showProfilePage(Model model){
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        model.addAttribute("user",userDao.findOne(user.getId()));
+        User sqlUser = userDao.findOne(user.getId());
+        model.addAttribute("user",sqlUser);
+        model.addAttribute("habits", sqlUser.getUser_badges());
         return "users/profile";
     }
 
