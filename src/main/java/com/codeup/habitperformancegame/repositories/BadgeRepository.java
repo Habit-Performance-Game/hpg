@@ -1,8 +1,15 @@
 package com.codeup.habitperformancegame.repositories;
 
 import com.codeup.habitperformancegame.models.Badge;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 
-public interface BadgeRepository extends CrudRepository<Badge,Long> {
+import java.util.List;
 
+public interface BadgeRepository extends CrudRepository<Badge,Long> {
+    @Query(value = "select * from badges where id NOT IN (select badge_id from user_badges where user_id =?1)", nativeQuery = true)
+    List<Badge> findNotAdded(long id);
+
+    @Query(value = "select * from badges where id IN (select badge_id from user_badges where user_id =?1)", nativeQuery = true)
+    List<Badge> findAdded(long id);
 }
