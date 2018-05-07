@@ -20,12 +20,7 @@
         <div class="col-sm-1"></div>
         <div class="col-sm-4">
             <div class="col-sm-12">
-                <div class="card">
-                    <div class="justify-content-between text-center"><h3>Clan Chat</h3></div>
-                    <div class="card-body">
-
-                    </div>
-                </div>
+                <div class="chat" id="sb_chat"></div>
             </div>
         </div>
         <div class="col-sm-4">
@@ -64,5 +59,15 @@
 
 
 <footer th:replace="partials/footer :: footer"></footer>
+<script src="/js/liveChat.SendBird.js"></script>
+<script src="/js/SendBird.min.js"></script>
+<script>
+    var appId = '50A95E6F-5E31-4AFE-B171-10923C608860';
+    var userId = '<USER_ID/>';
+    var nickname = '<NICKNAME/>';
+    var channelUrl = 'hpg_open_channel_1';
+    liveChat.start(appId, channelUrl);
+
+</script>
 </body>
 </html>

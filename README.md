@@ -25,4 +25,5 @@ Clan:
 - [ ] can view "clan challenge" progress
 - [ ] can earn clan badges for completing clan challenges
 - [ ] can message/chat with clan members
+- [ ] clan announcements
 
