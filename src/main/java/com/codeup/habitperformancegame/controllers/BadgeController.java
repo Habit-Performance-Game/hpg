@@ -32,13 +32,13 @@ public class BadgeController {
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         model.addAttribute("user",userDao.findOne(user.getId()));
         model.addAttribute("badges", badgeDao.findNotAdded(user.getId()));
+        model.addAttribute("userBadges", badgeDao.findAdded(user.getId()));
         model.addAttribute("currentBadges", badgeDao.findAdded(user.getId()));
         return "badges/select";
     }
 
-    @PostMapping("/habits")
+    @PostMapping("/habits/add")
     public String addHabit(@RequestParam String badge_id, Model model){
-        System.out.println("the ID is " + badge_id);
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         User mysql = userDao.findOne(user.getId());
         User_Badge habit = new User_Badge();
@@ -48,6 +48,12 @@ public class BadgeController {
         habit.setBadge(badgeDao.findOne(Long.parseLong(badge_id)));
         System.out.println(habit.getBadge().getName());
         userBadgeDao.save(habit);
+        return "redirect:/habits";
+    }
+
+    @PostMapping("/habits/remove")
+    public String removeHabit(@RequestParam String badge_id){
+        userBadgeDao.delete(Long.parseLong(badge_id));
         return "redirect:/habits";
     }
 
