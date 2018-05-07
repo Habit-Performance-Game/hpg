@@ -109,6 +109,15 @@
     $('#announceText').height($('#announcements').height()*.8)
 
 
+    function showTime(){
+        var javaTime = $('#memberSince').text();
+        var jsDate = new Date(javaTime);
+        let a = jsDate.toString().split(" ");
+        return a[1] + "/" + a[3];
+    }
+    $('#memberSince').text(showTime());
+
+
 
 
 
