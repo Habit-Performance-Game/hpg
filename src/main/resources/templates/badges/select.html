@@ -23,11 +23,11 @@
                         </div>
                     </li>
                 </div>
-                <div class="" th:each="userBadge : ${userBadges}">
+                <div class="" th:each="currentBadge : ${currentBadges}">
                     <li class="list-group-item">
-                        <div class="float-left" th:text="${userBadge.name}"></div>
+                        <div class="float-left" th:text="${currentBadge.getBadge().name}"></div>
                         <div class="btn-group" role="group">
-                            <i class="fa fa-trash-alt removeHabit" aria-hidden="true" th:attr="data-id=${userBadge.id}"></i>
+                            <i class="fa fa-trash-alt removeHabit" aria-hidden="true" th:attr="data-id=${currentBadge.id}"></i>
                         </div>
                     </li>
                 </div>
@@ -40,31 +40,31 @@
 <div class="hiddenElement" th:replace="partials/jsScripts :: scripts"></div>
 <script>
 
-    $(function () {
-        var token = $("input[name='_csrf']").val();
-        var header = "X-CSRF-TOKEN";
-        $(document).ajaxSend(function(e, xhr, options) {
-            xhr.setRequestHeader(header, token);
-        });
-    });
-
-    $(".addHabit").click(function () {
-        $.ajax("/habits/add", {
-            type: "POST",
-            data: {
-                badge_id: $(this).attr('data-id'),
-            }
-        })
-    });
-
-    $(".removeHabit").click(function () {
-        $.ajax("/habits/remove", {
-            type: "POST",
-            data: {
-                badge_id: $(this).attr('data-id'),
-            }
-        })
-    });
+    // $(function () {
+    //     var token = $("input[name='_csrf']").val();
+    //     var header = "X-CSRF-TOKEN";
+    //     $(document).ajaxSend(function(e, xhr, options) {
+    //         xhr.setRequestHeader(header, token);
+    //     });
+    // });
+    //
+    // $(".addHabit").click(function () {
+    //     $.ajax("/habits/add", {
+    //         type: "POST",
+    //         data: {
+    //             badge_id: $(this).attr('data-id'),
+    //         }
+    //     })
+    // });
+    //
+    // $(".removeHabit").click(function () {
+    //     $.ajax("/habits/remove", {
+    //         type: "POST",
+    //         data: {
+    //             userBadge_id: $(this).attr('data-id'),
+    //         }
+    //     })
+    // });
 
 
 </script>
