@@ -8,21 +8,28 @@
 
 <h1 class="text-center"> Log In </h1>
 
-<div class="container">
-    <div class="form-group">
+<div class="container-fluid" style="width: 500px">
+    <div style="border: 2px solid black; border-radius: 10px; height: 300px; width: 500px">
         <form th:action="@{/login}" method="post">
-            <div class="row">
-                <input class="col-xs-6 col-xs-offset-3 form-control" id="username" name="username" type="text" placeholder="Username..." autofocus="autofocus"/>
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input class="form-control" id="username" name="username" type="text" autofocus="autofocus"/>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input class="form-control"  id="password" name="password" type="password" />
             </div>
             <div class="row">
-                <input class="col-xs-6 col-xs-offset-3 form-control"  id="password" name="password" type="password" placeholder="Password..." />
+                <div class="col-sm-12">
+                    <div class="col-sm-6 offset-sm-3">
+                        <input class="btn btn-success btn-block" type="submit" value="Log In" />
+                    </div>
+                </div>
             </div>
-            <div class="row">
-                <input class="btn btn-success col-xs-2 col-xs-offset-5" type="submit" value="Log In" />
-            </div>
+
         </form>
-        <a href="/register" class="btn btn-info col-xs-2 col-xs-offset-5" role="button">SignUp</a>
     </div>
+    <!--<a href="/register" class="btn btn-info col-xs-2 col-xs-offset-5" role="button">SignUp</a>-->
 </div>
 </body>
 </html>
