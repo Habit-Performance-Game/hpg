@@ -6,4 +6,5 @@ import org.springframework.data.repository.CrudRepository;
 
 public interface UserBadgeRepository extends CrudRepository<User_Badge, Long>{
 
+
 }

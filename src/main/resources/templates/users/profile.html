@@ -27,7 +27,7 @@
                         <small><span th:text="${habit.getUser_amt()}"></span> of <span th:text="${habit.badge.getReq_amt()}"></span>
                             <i class="fas fa-plus fa-pull-right"></i>
                         </small>
-                        <i class="far fa-trash-alt"></i>
+                        <i class="fa fa-trash-alt removeHabit" aria-hidden="true" th:attr="data-id=${habit.id}"></i>
                     </li>
                 </ul>
                     <div>
