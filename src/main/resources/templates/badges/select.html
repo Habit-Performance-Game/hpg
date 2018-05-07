@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head th:replace="partials/header :: header('Habit Select')" />
+<body>
+<nav th:replace="partials/navbar :: navbar"></nav>
+
+
+<h1>Please select a new habit.</h1>
+<div sec:authorize="isAuthenticated()">
+</div>
+
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6">
+            <ul class="list-group">
+                <div class="" th:each="badge : ${badge}">
+                    <li class="list-group-item">
+                    <div class="float-left" th:text="${badge.name}"></div>
+                    <div class="btn-group float-right" role="group">
+                        <button type="button" class="btn btn-success btn-sm float-right">Add</button>
+                    </div>
+                    </li>
+                </div>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>

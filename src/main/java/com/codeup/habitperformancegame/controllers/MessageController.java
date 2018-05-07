@@ -7,10 +7,7 @@ import com.codeup.habitperformancegame.repositories.UserRepository;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,6 +34,14 @@ public class MessageController {
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         model.addAttribute("user",userDao.findOne(user.getId()));
         return "messages/sentMessages";
+    }
+
+    @GetMapping("/messages/{id}")
+    public String getSingleMessage(Model model, @PathVariable long id){
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        model.addAttribute("user",userDao.findOne(user.getId()));
+        model.addAttribute("single", messageDao.findOne(id));
+        return "messages/single";
     }
 
     @GetMapping("/messages/create")

@@ -88,4 +88,8 @@ public class Clan {
     public void setCreated_on(Date created_on) {
         this.created_on = created_on;
     }
+
+    public String getAnnouncements() { return announcements; }
+
+    public void setAnnouncements(String announcements) { this.announcements = announcements; }
 }

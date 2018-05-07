@@ -8,16 +8,19 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import javax.validation.Valid;
+
 @Controller
 public class UserController {
     private UserRepository userDao;
     private ClanRepository clanDao;
-    private PasswordEncoder passwordEncoder;// to be used when implimenting security
+    private PasswordEncoder passwordEncoder;// to be used when implementing security
 
     public UserController(UserRepository userDao, PasswordEncoder passwordEncoder,ClanRepository clanDao){
         this.userDao = userDao;
@@ -43,7 +46,12 @@ public class UserController {
 
     //save user info
     @PostMapping("/register")
-    public String saveUser(@ModelAttribute User user){
+    public String saveUser(@Valid User user, Errors validation, Model model){
+        if (validation.hasErrors()) {
+            model.addAttribute("errors", validation);
+            model.addAttribute("user", user);
+            return "/users/register";
+        }
         String hash = passwordEncoder.encode(user.getPassword());
         user.setPassword(hash);
         userDao.save(user);
