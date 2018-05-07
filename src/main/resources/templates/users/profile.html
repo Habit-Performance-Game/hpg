@@ -41,6 +41,7 @@
                     Username: <span th:text="${#authentication.principal.username}" />
                 </div>
                 <div class="card-body">
+                    <p>HPG Member since: <span id="memberSince" th:text="${user.getCreated_on().toLocaleString()}"></span></p>
                     Member of Clan: <span th:if="${user.clan} == null"><em>click below to join a clan</em></span>
                     <span th:if="${user.clan} != null" th:text="${user.clan.name}"></span>
                     <br />
@@ -54,5 +55,7 @@
         </div>
     </div>
 </div>
+
+<div th:replace="partials/jsScripts :: scripts"></div>
 </body>
 </html>
