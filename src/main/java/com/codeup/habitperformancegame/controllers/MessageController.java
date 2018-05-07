@@ -58,13 +58,12 @@ public class MessageController {
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         User sqlUser = userDao.findOne(user.getId());
         message.setCreated_by(sqlUser);
-        System.out.println(receivers.get(0).getUsername() + ", " + receivers.get(0).getClan().getName());
+//        System.out.println(receivers.get(0).getUsername() + ", " + receivers.get(0).getClan().getName());
 //        List<User> userObjects = new ArrayList<>();
 //        for(int i =0; i < receivers.length; i ++){
 //            userObjects.add(userDao.findOne(Long.parseLong(receivers[i])));
 //        }
         message.setSent_to(receivers);
-        System.out.println("there are this many receivers: " + message.getSent_to().size());
         messageDao.save(message);
         return "redirect:/messages";
     }
