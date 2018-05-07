@@ -64,7 +64,6 @@ public class MessageController {
 //            userObjects.add(userDao.findOne(Long.parseLong(receivers[i])));
 //        }
         message.setSent_to(receivers);
-        System.out.println("there are this many receivers: " + message.getSent_to().size());
         messageDao.save(message);
         return "redirect:/messages";
     }
