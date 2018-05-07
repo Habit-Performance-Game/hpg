@@ -61,11 +61,23 @@
 
 <div class="row">
     <div class="col-sm-4">
-        <button type="button" class="btn btn-secondary btn-lg btn-block">Join Clan</button>
+        <div class="col-sm-12">
+            <div style="width: 100%;height: 400px;overflow-scrolling: auto;" id="sb_chat"></div>
+        </div>
     </div>
 </div>
 
 <div th:replace="partials/jsScripts :: scripts"></div>
 <footer th:replace="partials/footer :: footer"></footer>
+<script src="/js/liveChat.SendBird.js"></script>
+<script src="/js/SendBird.min.js"></script>
+<script>
+    var appId = '50A95E6F-5E31-4AFE-B171-10923C608860';
+    var userId = '<USER_ID/>';
+    var nickname = '<NICKNAME/>';
+    var channelUrl = 'hpg_open_channel_1';
+    liveChat.start(appId, channelUrl);
+
+</script>
 </body>
 </html>
