@@ -15,12 +15,12 @@
     <div class="row">
         <div class="col-sm-6">
             <ul class="list-group">
-                <div class="" th:each="badge : ${badge}">
+                <div class="" th:each="badge : ${badges}">
                     <li class="list-group-item">
                     <div class="float-left" th:text="${badge.name}"></div>
-                    <div class="btn-group float-right" role="group">
-                        <button type="button" class="btn btn-success btn-sm float-right">Add</button>
-                    </div>
+                        <div class="btn-group" role="group">
+                            <i class="fa fa-plus addHabit" aria-hidden="true" th:attr="data-id=${badge.id}"></i>
+                        </div>
                     </li>
                 </div>
             </ul>
@@ -28,6 +28,40 @@
     </div>
 </div>
 
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script>
+
+    $(function () {
+        var token = $("input[name='_csrf']").val();
+        var header = "X-CSRF-TOKEN";
+        $(document).ajaxSend(function(e, xhr, options) {
+            xhr.setRequestHeader(header, token);
+        });
+    });
+
+    $(".addHabit").click(function () {
+        $.ajax("/habits", {
+            type: "POST",
+            data: {
+                badge_id: $(this).attr('data-id'),
+            }
+        });
+    });
+
+
+
+    // $(".addHabit").click(function () {
+    //     $.post("/habits", {
+    //         token : $("meta[name='_csrf']").attr("content"),
+    //         header: $("meta[name='_csrf_header']").attr("content"),
+    //         badge_id: $(this).attr('data-id')
+    //     }).done(function (data) {
+    //         console.log("done");
+    //     })
+    // })
+
+
+</script>
 
 </body>
 </html>
