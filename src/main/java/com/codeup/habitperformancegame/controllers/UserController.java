@@ -2,10 +2,7 @@ package com.codeup.habitperformancegame.controllers;
 
 import com.codeup.habitperformancegame.models.Clan;
 import com.codeup.habitperformancegame.models.User_Badge;
-import com.codeup.habitperformancegame.repositories.BadgeRepository;
-import com.codeup.habitperformancegame.repositories.ClanRepository;
-import com.codeup.habitperformancegame.repositories.UserBadgeRepository;
-import com.codeup.habitperformancegame.repositories.UserRepository;
+import com.codeup.habitperformancegame.repositories.*;
 import com.codeup.habitperformancegame.models.User;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -72,9 +69,12 @@ public class UserController {
     public String showProfilePage(Model model){
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         User sqlUser = userDao.findOne(user.getId());
+        if (sqlUser.getClan()!=null){
+            Clan clan = clanDao.findOne(sqlUser.getClan().getId());
+            model.addAttribute("clanHabits", clan.getClan_badges());
+        }
         model.addAttribute("user",sqlUser);
-        model.addAttribute("clanHabits", );
-        model.addAttribute("habits", sqlUser.getUser_badges());
+        model.addAttribute("habits", userBadgeDao.findNotCompleted(sqlUser.getId()));
         model.addAttribute("completedHabits", userBadgeDao.findCompleted(sqlUser.getId()));
         return "users/profile";
     }
@@ -83,8 +83,10 @@ public class UserController {
     public String showClanPage(Model model, @PathVariable long id) {
         System.out.println("before");
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        Clan clan = clanDao.findOne(id);
         model.addAttribute("user",userDao.findOne(user.getId()));
-        model.addAttribute("clan", clanDao.findOne(id));
+        model.addAttribute("clan", clan);
+        model.addAttribute("habits", clan.getClan_badges());
         System.out.println("after");
         return "clans/clanProfile";}
 

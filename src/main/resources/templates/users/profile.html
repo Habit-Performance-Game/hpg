@@ -5,23 +5,18 @@
 <nav th:replace="partials/navbar :: navbar"></nav>
 
 
-<h1>Welcome to your profile</h1>
+<h1 id="profileHeading" class="text-center">Welcome to your profile</h1>
 <div sec:authorize="isAuthenticated()">
 </div>
 
 
 <div class="container">
     <div class="row">
+        <!--###########  Personal Habits  #############   -->
         <div class="col-sm-6">
-            <div class="col-sm-12">
+            <div id="profileHabits" class="col-sm-12">
                 <ul class="list-group">
-                    <li class="list-group-item">Habits</li>
-                    <li class="list-group-item list-group-item-light">Buy a Boat.
-                        <div class="btn-group float-right" role="group">
-                            <button type="button" class="btn btn-success btn-sm">Complete</button>
-                            <button type="button" class="btn btn-danger btn-sm">Delete</button>
-                        </div>
-                    </li>
+                    <li class="list-group-item text-center">Personal Habits</li>
                     <li class="list-group-item" th:each="habit : ${habits}">
                         <span class="habitTitles" th:text="${habit.getBadge().name}"></span>
                         <small><span th:text="${habit.getUser_amt()}"></span> of <span th:text="${habit.badge.getReq_amt()}"></span>
@@ -42,30 +37,35 @@
                         <input type="submit" value="Save" class="btn btn-primary btn-sm saveEntry"/>
                     </form>
                 </div>
-                    <div>
-                        <a href="/habits" class="btn btn-primary btn-block">Get more habits</a>
-                    </div>
             </div>
-            <div class="col-sm-12">
-                <ul class="list-group">
-                    <li class="list-group-item">Habits</li>
-                    <li class="list-group-item list-group-item-light">Buy a Boat.
-                        <div class="btn-group float-right" role="group">
-                            <button type="button" class="btn btn-success btn-sm">Complete</button>
-                            <button type="button" class="btn btn-danger btn-sm">Delete</button>
-                        </div>
-                    </li>
-                    <li class="list-group-item" th:each="habit : ${habits}">
-                        <span class="habitTitles" th:text="${habit.getBadge().name}"></span>
-                        <small><span th:text="${habit.getUser_amt()}"></span> of <span th:text="${habit.badge.getReq_amt()}"></span>
-                            <!--<i class="fas fa-plus" data-toggle="popover" title="Popover title" data-content="And here's s"></i>-->
-                            <a class="myPopover" tabindex="0" role="button" data-toggle="popover"><i th:attr="data-id=${habit.id}" class="fas fa-plus addHabitId"></i></a>
-                        </small>
-                    </li>
-                </ul>
+                <div id="getMoreHabitsDivBtn">
+                    <a href="/habits" class="btn btn-primary btn-block">Get more habits</a>
+                </div>
+<!--##################  Clan Habits     ###################-->
+                <div class="col-sm-12" id="profileClanHabits" th:if="${user.clan}!=null">
+                    <ul class="list-group">
+                        <li class="list-group-item text-center">My Clan Habits</li>
+
+                        <li class="list-group-item" th:each="habit : ${clanHabits}">
+                            <span class="habitTitles" th:text="${habit.getBadge().name}"></span>
+                            <small><span th:text="${habit.getUser_amt()}"></span> of <span th:text="${habit.badge.getReq_amt()}"></span>
+                                <a class="myClanPopover" tabindex="0" role="button" data-toggle="popover2"><i th:attr="data-id=${habit.id}" class="fas fa-plus addClanHabitId"></i></a>
+                            </small>
+                        </li>
+                    </ul>
+                </div>
+
+            <div id="clanPopover-content" class="hiddenElement">
+                <form th:action="@{/clan/habits/entry}" th:method="post">
+                    <input type="hidden" id="clanBadgeId" name="clanBadgeId"/>
+                    Enter Amt: <input type="text" name="amount"/>
+                    <a tabindex="0" class="btn btn-sm btn-danger" role="button" data-dismiss="popover">Close</a>
+                    <input type="submit" value="Save" class="btn btn-primary btn-sm saveClanEntry"/>
+                </form>
             </div>
         </div>
         <div class="col-sm-6">
+            <div id="profileUserInfo">
             <div class="card h-75">
                 <div class="justify-content-between">
                 <img class="card-img-top" src="http://pixelartmaker.com/art/e67839ecc7ea933.png" alt="Card image cap" style="width:70px;height:70px;"/>
@@ -78,10 +78,11 @@
                     <br />
                     Badges:
                     <div class="justify-content-between">
-                        <img src="./images/badge.png" alt="badge" style="width:25px;height:25px;"/>
+
                         <i th:each="complete : ${completedHabits}" th:class="${complete.getBadge().iconClasses}"></i>
                     </div>
                 </div>
+            </div>
             </div>
             <a href="/clan/join" class="btn btn-primary btn-block">Join a Clan</a>
         </div>
