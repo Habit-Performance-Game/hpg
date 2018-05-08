@@ -52,12 +52,27 @@ public class BadgeController {
         return "redirect:/habits";
     }
 
+
+    @PostMapping("/habits/entry")
+    public String addEntry(@RequestParam String userBadgeId, @RequestParam String amount){
+        User_Badge habit = userBadgeDao.findOne(Long.parseLong(userBadgeId));
+        int previous = habit.getUser_amt();
+        int current = Integer.parseInt(amount);
+        if(previous+current >= habit.getBadge().getReq_amt()){
+            habit.setHas_completed(true);
+        }
+        habit.setUser_amt(previous + current);
+        userBadgeDao.save(habit);
+        return "redirect:/profile";
+    }
+
     @PostMapping("/habits/remove")
     public String removeHabit(@RequestParam String userBadge_id){
         System.out.println("Delete this: " + userBadge_id);
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         userBadgeDao.delete(Long.parseLong(userBadge_id));
         return "redirect:/habits";
+
     }
 
 }
