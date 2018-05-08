@@ -16,6 +16,9 @@ public class Badge {
     @Column(nullable = false)
     private int req_amt;
 
+    @Column(nullable = false)
+    private String iconClasses;
+
     @ManyToOne
     @JoinColumn (name = "category_id")
     private Category category;
@@ -40,7 +43,14 @@ public class Badge {
         this.type = type;
     }
 
-//    ##########################         getters and setters             ########################
+    public Badge(String name, int req_amt, String iconClasses, Category category, String type) {
+        this.name = name;
+        this.req_amt = req_amt;
+        this.iconClasses = iconClasses;
+        this.category = category;
+        this.type = type;
+    }
+    //    ##########################         getters and setters             ########################
 
     public long getId() {
         return id;
@@ -89,4 +99,8 @@ public class Badge {
     public void setUser_badges(List<User_Badge> user_badges) {
         this.user_badges = user_badges;
     }
+
+    public String getIconClasses() { return iconClasses; }
+
+    public void setIconClasses(String iconClasses) { this.iconClasses = iconClasses; }
 }
