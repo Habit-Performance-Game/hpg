@@ -30,15 +30,16 @@ public class BadgeController {
     @GetMapping("/habits")
     public String getHabits(Model model){
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        User mysql = userDao.findOne(user.getId());
         model.addAttribute("user",userDao.findOne(user.getId()));
         model.addAttribute("badges", badgeDao.findNotAdded(user.getId()));
-        model.addAttribute("currentBadges", badgeDao.findAdded(user.getId()));
+//        model.addAttribute("userBadges", badgeDao.findAdded(user.getId()));
+        model.addAttribute("currentBadges", mysql.getUser_badges());
         return "badges/select";
     }
 
-    @PostMapping("/habits")
+    @PostMapping("/habits/add")
     public String addHabit(@RequestParam String badge_id, Model model){
-        System.out.println("the ID is " + badge_id);
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         User mysql = userDao.findOne(user.getId());
         User_Badge habit = new User_Badge();
@@ -51,6 +52,7 @@ public class BadgeController {
         return "redirect:/habits";
     }
 
+
     @PostMapping("/habits/entry")
     public String addEntry(@RequestParam String userBadgeId, @RequestParam String amount){
         User_Badge habit = userBadgeDao.findOne(Long.parseLong(userBadgeId));
@@ -62,6 +64,15 @@ public class BadgeController {
         habit.setUser_amt(previous + current);
         userBadgeDao.save(habit);
         return "redirect:/profile";
+    }
+
+    @PostMapping("/habits/remove")
+    public String removeHabit(@RequestParam String userBadge_id){
+        System.out.println("Delete this: " + userBadge_id);
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        userBadgeDao.delete(Long.parseLong(userBadge_id));
+        return "redirect:/habits";
+
     }
 
 }

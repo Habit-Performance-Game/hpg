@@ -42,10 +42,16 @@
     margin: 5px auto;
 }
 
+
 .habitTitles{
     overflow: hidden;
     width: 50%;
     display: inline-block;
     text-overflow: ellipsis;
     white-space: nowrap;
+}
+.chat{
+    width: 200px;
+    height: 400px;
+    border: 1px solid black;
 }
