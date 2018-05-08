@@ -41,3 +41,11 @@
 #saveAnnouncements{
     margin: 5px auto;
 }
+
+.habitTitles{
+    overflow: hidden;
+    width: 50%;
+    display: inline-block;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}

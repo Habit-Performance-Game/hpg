@@ -23,13 +23,24 @@
                         </div>
                     </li>
                     <li class="list-group-item" th:each="habit : ${habits}">
-                        <span th:text="${habit.getBadge().name}"></span>
+                        <span class="habitTitles" th:text="${habit.getBadge().name}"></span>
                         <small><span th:text="${habit.getUser_amt()}"></span> of <span th:text="${habit.badge.getReq_amt()}"></span>
-                            <i class="fas fa-plus fa-pull-right"></i>
+                            <!--<i class="fas fa-plus" data-toggle="popover" title="Popover title" data-content="And here's s"></i>-->
+                            <a class="myPopover" tabindex="0" role="button" data-toggle="popover"><i th:attr="data-id=${habit.id}" class="fas fa-plus addHabitId"></i></a>
                         </small>
-                        <i class="far fa-trash-alt"></i>
+                        <i class="far fa-trash-alt fa-pull-right"></i>
                     </li>
                 </ul>
+
+                <div id="popover-content" class="hiddenElement">
+                    <form th:action="@{/habits/entry}" th:method="post">
+                        <input type="hidden" id="userBadgeId" name="userBadgeId"/>
+                        Enter Amt: <input type="text" name="amount"/>
+                        <a tabindex="0" class="btn btn-sm btn-danger" role="button" data-dismiss="popover">Close</a>
+                        <!--<input value="Close" data-toggle="popover" type="button" class="btn btn-danger btn-sm closePopover"/>-->
+                        <input type="submit" value="Save" class="btn btn-primary btn-sm saveEntry"/>
+                    </form>
+                </div>
                     <div>
                         <a href="/habits" class="btn btn-primary btn-block">Get more habits</a>
                     </div>
@@ -49,6 +60,7 @@
                     Badges:
                     <div class="justify-content-between">
                         <img src="./images/badge.png" alt="badge" style="width:25px;height:25px;"/>
+                        <i th:each="complete : ${completedHabits}" th:class="${complete.getBadge().iconClasses}"></i>
                     </div>
                 </div>
             </div>
