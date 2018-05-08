@@ -2,6 +2,7 @@ package com.codeup.habitperformancegame.controllers;
 
 import com.codeup.habitperformancegame.models.Clan;
 import com.codeup.habitperformancegame.models.User_Badge;
+import com.codeup.habitperformancegame.repositories.BadgeRepository;
 import com.codeup.habitperformancegame.repositories.ClanRepository;
 import com.codeup.habitperformancegame.repositories.UserBadgeRepository;
 import com.codeup.habitperformancegame.repositories.UserRepository;
@@ -23,13 +24,15 @@ public class UserController {
     private UserRepository userDao;
     private ClanRepository clanDao;
     private UserBadgeRepository userBadgeDao;
+    private BadgeRepository badgeDao;
     private PasswordEncoder passwordEncoder;// to be used when implementing security
 
-    public UserController(UserRepository userDao, PasswordEncoder passwordEncoder,ClanRepository clanDao, UserBadgeRepository userBadgeDao){
+    public UserController(UserRepository userDao, PasswordEncoder passwordEncoder,ClanRepository clanDao, UserBadgeRepository userBadgeDao, BadgeRepository badgeDao){
         this.userDao = userDao;
         this.passwordEncoder = passwordEncoder;
         this.clanDao = clanDao;
         this.userBadgeDao = userBadgeDao;
+        this.badgeDao = badgeDao;
     }
 
     @GetMapping("/")
@@ -70,6 +73,7 @@ public class UserController {
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         User sqlUser = userDao.findOne(user.getId());
         model.addAttribute("user",sqlUser);
+        model.addAttribute("clanHabits", );
         model.addAttribute("habits", sqlUser.getUser_badges());
         model.addAttribute("completedHabits", userBadgeDao.findCompleted(sqlUser.getId()));
         return "users/profile";
