@@ -9,27 +9,30 @@
 
 
     <div class="row">
-        <div class="col-sm-3">
-            <div class="col-sm-12">
-                <h2 class="text-center">Members</h2>
-                <ul class="list-group">
-                    <li class="list-group-item" th:each="member : ${clan.users}" th:text="${member.username}"></li>
-                </ul>
-            </div>
-        </div>
-        <div class="col-sm-1"></div>
-        <div id="announcementsHolder" class="col-sm-4">
-                <div id="announcements" class="card">
-                    <div class="justify-content-between text-center"><h3>Announcements
-                        <i id="editAnnouncements" class="far fa-edit" th:if="${user.id}==${clan.owner_id}"></i>
-                    </h3></div>
-                    <form th:action="@{/clan/announcements/save}" th:method="post">
-                        <textarea id="announceText" name="announcements" th:text="${clan.announcements}" readonly="readonly"></textarea>
-                        <input type="submit" id="saveAnnouncements" class="btn btn-primary hiddenElement"/>
-                    </form>
-
+        <div class="col-sm-8">
+            <div class="col-sm-6">a
+                <div class="card">
+                    <div class="justify-content-between text-center"><h3>Badges</h3></div>
+                    <div class="card-body">
+                        <div class="justify-content-between">
+                            <i class="ra ra-sword ra-2x"></i>
+                        </div>
+                    </div>
                 </div>
-            <!--</div>-->
+            </div>
+            <div id="announcementsHolder" class="col-sm-6">
+                    <div id="announcements" class="card">
+                        <div class="justify-content-between text-center"><h3>Announcements
+                            <i id="editAnnouncements" class="far fa-edit" th:if="${user.id}==${clan.owner_id}"></i>
+                        </h3></div>
+                        <form th:action="@{/clan/announcements/save}" th:method="post">
+                            <textarea id="announceText" name="announcements" th:text="${clan.announcements}" readonly="readonly"></textarea>
+                            <input type="submit" id="saveAnnouncements" class="btn btn-primary hiddenElement"/>
+                        </form>
+
+                    </div>
+                <!--</div>-->
+            </div>
         </div>
         <div class="col-sm-4">
             <div class="col-sm-12">
@@ -46,14 +49,10 @@
                 </div>
             </div>
             <div class="col-sm-12">
-                <div class="card">
-                    <div class="justify-content-between text-center"><h3>Badges</h3></div>
-                    <div class="card-body">
-                        <div class="justify-content-between">
-                            <img src="/static/images/badge.png" alt="badge" style="width:25px;height:25px;"/>
-                        </div>
-                    </div>
-                </div>
+                <h2 class="text-center">Members</h2>
+                <ul class="list-group">
+                    <li class="list-group-item" th:each="member : ${clan.users}" th:text="${member.username}"></li>
+                </ul>
             </div>
         </div>
     </div>
