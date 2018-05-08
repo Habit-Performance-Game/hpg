@@ -150,6 +150,28 @@
         })
     });
 
+    $(".addClanHabit").click(function () {
+        $.ajax("/clan/habits/add", {
+            type: "POST",
+            data: {
+                badge_id: $(this).attr('data-id'),
+            }
+        }).done (function() {
+            location.reload(true)
+        })
+    });
+
+    $(".removeClanHabit").click(function () {
+        $.ajax("/clan/habits/remove", {
+            type: "POST",
+            data: {
+                clanBadge_id: $(this).attr('data-id'),
+            }
+        }).done (function() {
+            location.reload(true)
+        })
+    });
+
 
 
 

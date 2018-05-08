@@ -6,6 +6,8 @@ import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
 
+import static javax.persistence.CascadeType.ALL;
+
 @Entity
 @Table(name = "clans")
 public class Clan {
@@ -23,6 +25,9 @@ public class Clan {
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "clan")
     private List<User> users;
+
+    @OneToMany(cascade = ALL, mappedBy = "clan")
+    private List<Clan_Badge> clan_badges;
 
     @CreationTimestamp
     @Column(updatable = false)
@@ -92,4 +97,8 @@ public class Clan {
     public String getAnnouncements() { return announcements; }
 
     public void setAnnouncements(String announcements) { this.announcements = announcements; }
+
+    public List<Clan_Badge> getClan_badges() { return clan_badges; }
+
+    public void setClan_badges(List<Clan_Badge> clan_badges) { this.clan_badges = clan_badges; }
 }
