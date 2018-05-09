@@ -85,7 +85,7 @@ public class UserController {
         model.addAttribute("user",sqlUser);
         model.addAttribute("habits", userBadgeDao.findNotCompleted(sqlUser.getId()));
         model.addAttribute("completedHabits", userBadgeDao.findCompleted(sqlUser.getId()));
-        model.addAttribute("avatar",avatarDao.findOne(sqlUser.getId()));
+        model.addAttribute("avatar",avatarDao.findOne(sqlUser.getAvatar().getId()));
         return "users/profile";
     }
 
