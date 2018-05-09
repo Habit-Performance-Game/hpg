@@ -68,7 +68,7 @@
             <div class="card h-75">
                 <div class="justify-content-between">
 
-                    <i class="card-img-top" th:attr="class=${avatar.url}, style=${user.avatar_color}"/>
+                    <i class="card-img-top" th:attr="class=${avatar.url}" th:classappend="${user.avatar_color}"/>
                         Username: <span style="font-weight: bold" th:text="${#authentication.principal.username}" />
 
 
