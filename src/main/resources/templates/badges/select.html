@@ -13,21 +13,27 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-sm-6">
+        <div class="col-sm-5">
             <ul class="list-group">
+                <li class="list-group-item">Pick Habits.</li>
                 <div class="" th:each="badge : ${badges}">
                     <li class="list-group-item">
-                    <div class="float-left" th:text="${badge.name}"></div>
+                        <div class="float-left" th:text="${badge.name}"></div>
                         <div class="btn-group" role="group">
-                            <i class="fa fa-plus addHabit" aria-hidden="true" th:attr="data-id=${badge.id}"></i>
+                            <i class="fa fa-plus fa-pull-right addHabit" th:attr="data-id=${badge.id}"></i>
                         </div>
                     </li>
                 </div>
+            </ul>
+        </div>
+        <div class="col-sm-5">
+            <ul class="list-group">
+                <li class="list-group-item">Your current Habits.</li>
                 <div class="" th:each="currentBadge : ${currentBadges}">
                     <li class="list-group-item">
                         <div class="float-left" th:text="${currentBadge.getBadge().name}"></div>
                         <div class="btn-group" role="group">
-                            <i class="fa fa-trash-alt removeHabit" aria-hidden="true" th:attr="data-id=${currentBadge.id}"></i>
+                            <i class="fa fa-trash-alt fa-pull-right removeHabit" th:attr="data-id=${currentBadge.id}"></i>
                         </div>
                     </li>
                 </div>
@@ -37,34 +43,11 @@
 </div>
 
 
+
+
 <div class="hiddenElement" th:replace="partials/jsScripts :: scripts"></div>
 <script>
 
-    // $(function () {
-    //     var token = $("input[name='_csrf']").val();
-    //     var header = "X-CSRF-TOKEN";
-    //     $(document).ajaxSend(function(e, xhr, options) {
-    //         xhr.setRequestHeader(header, token);
-    //     });
-    // });
-    //
-    // $(".addHabit").click(function () {
-    //     $.ajax("/habits/add", {
-    //         type: "POST",
-    //         data: {
-    //             badge_id: $(this).attr('data-id'),
-    //         }
-    //     })
-    // });
-    //
-    // $(".removeHabit").click(function () {
-    //     $.ajax("/habits/remove", {
-    //         type: "POST",
-    //         data: {
-    //             userBadge_id: $(this).attr('data-id'),
-    //         }
-    //     })
-    // });
 
 
 </script>

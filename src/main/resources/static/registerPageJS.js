@@ -31,3 +31,14 @@ $('#submitRegistration').click(function (event) {
         return;
     }
 })
+
+$("#select_avatar").change(function(){
+    console.log($(this));
+    $("#display-avatar").removeClass();
+    $("#display-avatar").addClass($("#select_avatar option:selected").attr("data-url"));
+});
+
+$('#color_avatar').change(function() {
+    $("#display-avatar").removeAttr("color");
+    $("#display-avatar").css("color", $("#color_avatar option:selected").attr("data-path"));
+});

@@ -42,6 +42,9 @@ public class User {
     @JoinColumn (name = "avatar_id")
     private Avatar avatar;
 
+    @Column
+    private String avatar_color;
+
     @ManyToOne
     @JoinColumn (name = "clan_id")
     private Clan clan;
@@ -72,7 +75,7 @@ public class User {
         password = copy.password;
     }
 
-    public User(String username, String email, String password, String firstName, String lastName, String bio, Avatar avatar) {
+    public User(String username, String email, String password, String firstName, String lastName, String bio, Avatar avatar, String avatar_color) {
         this.username = username;
         this.email = email;
         this.password = password;
@@ -80,9 +83,10 @@ public class User {
         this.lastName = lastName;
         this.bio = bio;
         this.avatar = avatar;
+        this.avatar_color = avatar_color;
     }
 
-    public User(String username, String email, String password, String firstName, String lastName, String bio, Avatar avatar, Clan clan, Date created_on, List<User_Badge> user_badges, List<Message> messages, List<Message> created_messages) {
+    public User(String username, String email, String password, String firstName, String lastName, String bio, Avatar avatar, String avatar_color, Clan clan, Date created_on, List<User_Badge> user_badges, List<Message> messages, List<Message> created_messages) {
         this.username = username;
         this.email = email;
         this.password = password;
@@ -90,6 +94,7 @@ public class User {
         this.lastName = lastName;
         this.bio = bio;
         this.avatar = avatar;
+        this.avatar_color = avatar_color;
         this.clan = clan;
         this.created_on = created_on;
         this.user_badges = user_badges;
@@ -195,4 +200,8 @@ public class User {
     public List<Message> getMessages() { return messages; }
 
     public void setMessages(List<Message> messages) { this.messages = messages; }
+
+    public String getAvatar_color() { return avatar_color; }
+
+    public void setAvatar_color(String avatar_color) { this.avatar_color = avatar_color; }
 }
