@@ -1,5 +1,6 @@
 package com.codeup.habitperformancegame.controllers;
 
+import com.codeup.habitperformancegame.models.Avatar;
 import com.codeup.habitperformancegame.models.Clan;
 import com.codeup.habitperformancegame.models.User_Badge;
 import com.codeup.habitperformancegame.repositories.*;
@@ -18,6 +19,7 @@ import javax.validation.Valid;
 
 @Controller
 public class UserController {
+    private AvatarRepository avatarDao;
     private UserRepository userDao;
     private ClanRepository clanDao;
     private UserBadgeRepository userBadgeDao;
@@ -25,11 +27,14 @@ public class UserController {
     private ClanBadgeRepository clanBadgeDao;
     private PasswordEncoder passwordEncoder;// to be used when implementing security
 
-    public UserController(UserRepository userDao, PasswordEncoder passwordEncoder,ClanRepository clanDao, UserBadgeRepository userBadgeDao, BadgeRepository badgeDao,ClanBadgeRepository clanBadgeDao){
+
+
+    public UserController(UserRepository userDao, PasswordEncoder passwordEncoder, ClanRepository clanDao, UserBadgeRepository userBadgeDao, AvatarRepository avatarDao, BadgeRepository badgeDao, ClanBadgeRepository clanBadgeDao){
         this.userDao = userDao;
         this.passwordEncoder = passwordEncoder;
         this.clanDao = clanDao;
         this.userBadgeDao = userBadgeDao;
+        this.avatarDao= avatarDao;
         this.badgeDao = badgeDao;
         this.clanBadgeDao = clanBadgeDao;
     }
@@ -47,6 +52,7 @@ public class UserController {
     @GetMapping("/register")
     public String showRegisterForm(Model model){
         model.addAttribute("user", new User());
+        model.addAttribute("avatars", avatarDao.findAll());
         return "users/register";
     }
 
@@ -79,6 +85,7 @@ public class UserController {
         model.addAttribute("user",sqlUser);
         model.addAttribute("habits", userBadgeDao.findNotCompleted(sqlUser.getId()));
         model.addAttribute("completedHabits", userBadgeDao.findCompleted(sqlUser.getId()));
+        model.addAttribute("avatar",avatarDao.findOne(sqlUser.getId()));
         return "users/profile";
     }
 
