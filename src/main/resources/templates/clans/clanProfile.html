@@ -19,36 +19,26 @@
         </div>
         <div class="col-sm-1"></div>
         <div id="announcementsHolder" class="col-sm-4">
-                <div id="announcements" class="card">
-                    <div class="justify-content-between text-center"><h3>Announcements
-                        <i id="editAnnouncements" class="far fa-edit" th:if="${user.id}==${clan.owner_id}"></i>
-                    </h3></div>
-                    <form th:action="@{/clan/announcements/save}" th:method="post">
-                        <textarea id="announceText" name="announcements" th:text="${clan.announcements}" readonly="readonly"></textarea>
-                        <input type="submit" id="saveAnnouncements" class="btn btn-primary hiddenElement"/>
-                    </form>
-
-                </div>
-            <!--</div>-->
+            <img src="/images/note.png" alt="ClanAnnouncements" style="width: 100%"/>
+            <i id="editAnnouncements" class="far fa-edit" th:if="${user.id}==${clan.owner_id}"></i>
+            <form th:action="@{/clan/announcements/save}" th:method="post">
+                <textarea id="announceText" name="announcements" th:text="${clan.announcements}" readonly="readonly"></textarea>
+                <input type="submit" id="saveAnnouncements" class="btn btn-primary hiddenElement"/>
+            </form>
         </div>
         <div class="col-sm-4">
             <div class="col-sm-12">
-                <div class="card">
-                    <div class="justify-content-between text-center"><h3>Clan Challenge</h3></div>
-                    <div class="card-body">
-                        <div class="justify-content-between">
-                            <ul class="list-group">
-                                <li class="list-group-item">Clan Habits</li>
-                                <li class="list-group-item" th:each="habit : ${habits}">
-                                    <span class="habitTitles" th:text="${habit.getBadge().name}"></span>
-                                    <small><span th:text="${habit.getUser_amt()}"></span> of <span th:text="${habit.badge.getReq_amt()}"></span>
-                                        <!--<i class="fas fa-plus" data-toggle="popover" title="Popover title" data-content="And here's s"></i>-->
-                                        <a class="myPopover" tabindex="0" role="button" data-toggle="popover"><i th:attr="data-id=${habit.id}" class="fas fa-plus addHabitId"></i></a>
-                                    </small>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
+                <div id="divClanHabits">
+                     <ul class="list-group fontCinzel">
+                         <li class="list-group-item text-center boldTitle">Clan Habits</li>
+                         <li class="list-group-item" th:each="habit : ${habits}">
+                             <span class="habitTitles" th:text="${habit.getBadge().name}"></span>
+                             <small><span th:text="${habit.getUser_amt()}"></span> of <span th:text="${habit.badge.getReq_amt()}"></span>
+                                 <!--<i class="fas fa-plus" data-toggle="popover" title="Popover title" data-content="And here's s"></i>-->
+                                 <a class="myPopover" tabindex="0" role="button" data-toggle="popover"><i th:attr="data-id=${habit.id}" class="fas fa-plus addHabitId"></i></a>
+                             </small>
+                         </li>
+                     </ul>
                 </div>
             </div>
             <div class="col-sm-12">
