@@ -41,8 +41,8 @@
 
      <!-- ############   Add Clan Habits  ###################       -->
 
-        <div class="col-sm-4" th:if="${user.id} == ${user.clan.owner_id}">
-            <ul class="list-group">
+        <div class="col-sm-4" th:if="${user.clan}!=null">
+            <ul class="list-group" th:if="${user.id} == ${user.clan.owner_id}">
                 <li class="list-group-item text-center boldTitle">Add Clan Habits</li>
                 <li class="list-group-item" th:each="badge : ${clanBadgesNotAdded}">
                     <span class="habitTitles" th:text="${badge.name}"></span>
@@ -53,26 +53,6 @@
                     <i class="fa fa-trash-alt fa-pull-right removeClanHabit" aria-hidden="true" th:attr="data-id=${currentBadge.id}"></i>
                 </li>
             </ul>
-
-            <!--<ul class="list-group">-->
-                <!--<li class="list-group-item text-center">Add Clan Habits</li>-->
-                <!--<div class="" th:each="badge : ${clanBadgesNotAdded}">-->
-                    <!--<li class="list-group-item">-->
-                        <!--<div class="float-left" th:text="${badge.name}"></div>-->
-                        <!--<div class="btn-group" role="group">-->
-                            <!--<i class="fa fa-plus addClanHabit" aria-hidden="true" th:attr="data-id=${badge.id}"></i>-->
-                        <!--</div>-->
-                    <!--</li>-->
-                <!--</div>-->
-                <!--<div class="" th:each="currentBadge : ${clanBadgesAdded}">-->
-                    <!--<li class="list-group-item">-->
-                        <!--<div class="float-left" th:text="${currentBadge.name}"></div>-->
-                        <!--<div class="btn-group" role="group">-->
-                            <!--<i class="fa fa-trash-alt removeClanHabit" aria-hidden="true" th:attr="data-id=${currentBadge.id}"></i>-->
-                        <!--</div>-->
-                    <!--</li>-->
-                <!--</div>-->
-            <!--</ul>-->
         </div>
     </div>
 </div>
