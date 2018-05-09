@@ -41,3 +41,24 @@ $('.addClanHabitId').click(function () {
     var a = $(this);
     $('#clanBadgeId').val(a.attr('data-id'));
 });
+
+$(function () {
+    $('[data-toggle="popover3"]').popover({
+        html : true,
+        placement:"bottom",
+        title: "Add Clan Entry",
+        content: function() {
+            return $("#clanProfilePopover-content").html();
+        }
+    })
+});
+$('.myClanPopover').on('shown.bs.popover', function () {
+    $('.btn-danger').click(function(){
+        $('.popover').popover('hide')
+    })
+})
+
+$('.addClanHabitId').click(function () {
+    var a = $(this);
+    $('#clanProfileBadgeId').val(a.attr('data-id'));
+});

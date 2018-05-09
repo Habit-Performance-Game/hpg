@@ -5,19 +5,20 @@
 <body>
 <nav th:replace="partials/navbar :: navbar"></nav>
 
-<h1 class="text-center" th:text="${clan.name}"></h1>
+<h1 id="clanProfileTitle" class="text-center" th:text="${clan.name}"></h1>
 
 
     <div class="row">
-        <div class="col-sm-3">
-            <div class="col-sm-12">
-                <h2 class="text-center">Members</h2>
-                <ul class="list-group">
-                    <li class="list-group-item" th:each="member : ${clan.users}" th:text="${member.username}"></li>
+        <div  id="memberListDiv" class="col-sm-3 relativePosition fontNiconne">
+            <img src="/images/scrollPaper.jpg" alt="" style="width: 100%"/>
+            <!--<div class="col-sm-12">-->
+                <h2 id="clanMemberListTitle" class="text-center absolutePosition">Members</h2>
+                <ul id="clanMemberList">
+                    <li class="clanMemberListItems" th:each="member : ${clan.users}" th:text="${member.username}"></li>
                 </ul>
-            </div>
+            <!--</div>-->
         </div>
-        <div class="col-sm-1"></div>
+        <!--<div class="col-sm-1"></div>-->
         <div id="announcementsHolder" class="col-sm-4">
             <img src="/images/note.png" alt="ClanAnnouncements" style="width: 100%"/>
             <i id="editAnnouncements" class="far fa-edit" th:if="${user.id}==${clan.owner_id}"></i>
@@ -26,25 +27,38 @@
                 <input type="submit" id="saveAnnouncements" class="btn btn-primary hiddenElement"/>
             </form>
         </div>
+<!--##############  Clan Habits     ##############################################-->
         <div class="col-sm-4">
             <div class="col-sm-12">
                 <div id="divClanHabits">
                      <ul class="list-group fontCinzel">
-                         <li class="list-group-item text-center boldTitle">Clan Habits</li>
+                         <li class="list-group-item text-center boldTitle">Clan Habits
+                             <a href="/habits" th:if="${user.id} == ${user.clan.owner_id}">
+                                 <i class="fas fa-plus addClanHabitButton"></i>
+                             </a>
+                         </li>
                          <li class="list-group-item" th:each="habit : ${habits}">
                              <span class="habitTitles" th:text="${habit.getBadge().name}"></span>
                              <small><span th:text="${habit.getUser_amt()}"></span> of <span th:text="${habit.badge.getReq_amt()}"></span>
-                                 <!--<i class="fas fa-plus" data-toggle="popover" title="Popover title" data-content="And here's s"></i>-->
-                                 <a class="myPopover" tabindex="0" role="button" data-toggle="popover"><i th:attr="data-id=${habit.id}" class="fas fa-plus addHabitId"></i></a>
+                                 <a class="myClanPopover" tabindex="0" role="button" data-toggle="popover3"><i th:attr="data-id=${habit.id}" class="fas fa-plus addClanHabitId"></i></a>
                              </small>
                          </li>
                      </ul>
                 </div>
             </div>
+            <div id="clanProfilePopover-content" class="hiddenElement">
+                <form th:action="@{/clan/habits/entry}" th:method="post">
+                    <input type="hidden" name="location" value="clan"/>
+                    <input type="hidden" id="clanProfileBadgeId" name="clanBadgeId"/>
+                    Enter Amt: <input type="text" name="amount"/>
+                    <a tabindex="0" class="btn btn-sm btn-danger" role="button" data-dismiss="popover">Close</a>
+                    <input type="submit" value="Save" class="btn btn-primary btn-sm saveClanEntry"/>
+                </form>
+            </div>
 <!--##############  Clan Badges     ####################################  -->
             <div class="col-sm-12">
                 <div class="card">
-                    <div class="justify-content-between text-center"><h3>Badges</h3></div>
+                    <div class="justify-content-between text-center"><h3>Badges: </h3></div>
                     <div class="card-body">
                         <div class="justify-content-between">
                             <i th:each="complete : ${completedHabits}" th:class="${complete.getBadge().iconClasses}"></i>
@@ -64,7 +78,6 @@
     </div>
 </div>
 
-<div th:replace="partials/jsScripts :: scripts"></div>
 <footer th:replace="partials/footer :: footer"></footer>
 <script src="/js/liveChat.SendBird.js"></script>
 <script src="/js/SendBird.min.js"></script>
@@ -76,5 +89,6 @@
     liveChat.start(appId, channelUrl);
 
 </script>
+<div th:replace="partials/jsScripts :: scripts"></div>
 </body>
 </html>

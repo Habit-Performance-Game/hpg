@@ -88,7 +88,7 @@ public class UserController {
         Clan clan = clanDao.findOne(id);
         model.addAttribute("user",userDao.findOne(user.getId()));
         model.addAttribute("clan", clan);
-        model.addAttribute("habits", clan.getClan_badges());
+        model.addAttribute("habits", clanBadgeDao.findNotCompleted(clan.getId()));
         model.addAttribute("completedHabits",clanBadgeDao.findCompleted(clan.getId()));
         return "clans/clanProfile";}
 

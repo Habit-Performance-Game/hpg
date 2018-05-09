@@ -106,3 +106,37 @@ body{
 .fontVT323{
     font-family: 'VT323', monospace;
 }
+.fontNiconne{
+    font-family: 'Niconne', cursive;
+}
+.clanMemberListItems{
+    text-align: center;
+}
+#clanMemberListTitle{
+    top: 0.60790vw;
+    left: 6.78824vw;
+    font-size: 2.8vw;
+}
+#clanMemberList{
+    position: absolute;
+    top: 5.572441vw;
+    left: 5.06585vw;
+    max-width: 19.25025vw;
+    font-size: 2.33029vw;
+    max-height: 17.2239vw;
+    overflow: scroll;
+    list-style-type: none;
+}
+#memberListDiv{
+    margin-right: 3.03951vw;
+    margin-left: 3.03951vw;
+}
+#clanProfileTitle{
+    margin-bottom: 3.03951vw;
+}
+.relativePosition{
+    position: relative;
+}
+.absolutePosition{
+    position: absolute;
+}
