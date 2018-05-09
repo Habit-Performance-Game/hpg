@@ -75,7 +75,9 @@ public class BadgeController {
     }
 
     @PostMapping("/clan/habits/entry")
-    public String addClanEntry(@RequestParam String clanBadgeId, @RequestParam String amount){
+    public String addClanEntry(@RequestParam String clanBadgeId, @RequestParam String amount, @RequestParam String location){
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        User mysql = userDao.findOne(user.getId());
         Clan_Badge habit = clanBadgeDao.findOne(Long.parseLong(clanBadgeId));
         int previous = habit.getUser_amt();
         int current = Integer.parseInt(amount);
@@ -84,6 +86,9 @@ public class BadgeController {
         }
         habit.setUser_amt(previous + current);
         clanBadgeDao.save(habit);
+        if (location.equals("clan")) {
+            return "redirect:/clan/" + mysql.getClan().getId();
+        }
         return "redirect:/profile";
     }
 
