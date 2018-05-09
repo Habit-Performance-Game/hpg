@@ -6,11 +6,15 @@ body{
 /******************** landing page ******************************/
 .hero{
     background-image: url("../images/hero.png");
+    opacity: .7;
 }
 
 .header{
-    background-color: azure;
-    opacity: .9;
+    color: azure;
+}
+
+.bod-color{
+    background-color: #dde1e3;
 }
 
 
