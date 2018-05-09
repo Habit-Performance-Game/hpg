@@ -117,3 +117,15 @@ body{
 .fontVT323{
     font-family: 'VT323', monospace;
 }
+
+.red{
+    color: red;
+}
+
+.blue{
+    color: blue;
+}
+
+.black{
+    color: black;
+}
