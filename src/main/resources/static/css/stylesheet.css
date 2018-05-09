@@ -3,6 +3,17 @@ body{
     font-family: 'Cinzel Decorative', cursive;
 }
 
+/******************** landing page ******************************/
+.hero{
+    background-image: url("../images/hero.png");
+}
+
+.header{
+    background-color: azure;
+    opacity: .9;
+}
+
+
 /******************* CSS for Cards ***************************************/
 .card{margin-bottom: 15px;
     border-radius:0;
