@@ -22,14 +22,16 @@ public class UserController {
     private ClanRepository clanDao;
     private UserBadgeRepository userBadgeDao;
     private BadgeRepository badgeDao;
+    private ClanBadgeRepository clanBadgeDao;
     private PasswordEncoder passwordEncoder;// to be used when implementing security
 
-    public UserController(UserRepository userDao, PasswordEncoder passwordEncoder,ClanRepository clanDao, UserBadgeRepository userBadgeDao, BadgeRepository badgeDao){
+    public UserController(UserRepository userDao, PasswordEncoder passwordEncoder,ClanRepository clanDao, UserBadgeRepository userBadgeDao, BadgeRepository badgeDao,ClanBadgeRepository clanBadgeDao){
         this.userDao = userDao;
         this.passwordEncoder = passwordEncoder;
         this.clanDao = clanDao;
         this.userBadgeDao = userBadgeDao;
         this.badgeDao = badgeDao;
+        this.clanBadgeDao = clanBadgeDao;
     }
 
     @GetMapping("/")
@@ -71,7 +73,8 @@ public class UserController {
         User sqlUser = userDao.findOne(user.getId());
         if (sqlUser.getClan()!=null){
             Clan clan = clanDao.findOne(sqlUser.getClan().getId());
-            model.addAttribute("clanHabits", clan.getClan_badges());
+//            model.addAttribute("clanHabits", clan.getClan_badges());
+            model.addAttribute("clanHabits", clanBadgeDao.findNotCompleted(clan.getId()));
         }
         model.addAttribute("user",sqlUser);
         model.addAttribute("habits", userBadgeDao.findNotCompleted(sqlUser.getId()));
@@ -81,13 +84,12 @@ public class UserController {
 
     @GetMapping("/clan/{id}")
     public String showClanPage(Model model, @PathVariable long id) {
-        System.out.println("before");
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         Clan clan = clanDao.findOne(id);
         model.addAttribute("user",userDao.findOne(user.getId()));
         model.addAttribute("clan", clan);
         model.addAttribute("habits", clan.getClan_badges());
-        System.out.println("after");
+        model.addAttribute("completedHabits",clanBadgeDao.findCompleted(clan.getId()));
         return "clans/clanProfile";}
 
 }
