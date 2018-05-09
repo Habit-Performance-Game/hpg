@@ -3,6 +3,21 @@ body{
     font-family: 'Cinzel Decorative', cursive;
 }
 
+/******************** landing page ******************************/
+.hero{
+    background-image: url("../images/hero.png");
+    opacity: .7;
+}
+
+.header{
+    color: azure;
+}
+
+.bod-color{
+    background-color: #dde1e3;
+}
+
+
 /******************* CSS for Cards ***************************************/
 .card{margin-bottom: 15px;
     border-radius:0;
@@ -139,4 +154,24 @@ body{
 }
 .absolutePosition{
     position: absolute;
+}
+
+.red{
+    color: red;
+}
+
+.blue{
+    color: blue;
+}
+
+.black{
+    color: black;
+}
+
+.gold{
+    color: gold;
+}
+
+.silver{
+    color: silver;
 }

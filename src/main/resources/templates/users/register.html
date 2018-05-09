@@ -37,11 +37,32 @@
             <p id="repeatPasswordError" class="hiddenElement">Passwords do not match</p>
         </div>
 
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="col-sm-12">
+                        <select class="form-control" name="select_avatar" id="select_avatar" th:field="*{avatar}">
+                            <option disabled="disabled" value="1" selected="selected">Select an Avatar.</option>
+                             <option th:each="avatar : ${avatars}" th:attr="value=${avatar.id}, data-url=${avatar.url}"><span th:text="${avatar.name}"></span></option>
+                        </select>
+                            <select class="form-control" name="color_avatar" id="color_avatar" th:field="*{avatar_color}">
+                            <option disabled="disabled" value="1" selected="selected">Select an Avatar color.</option>
+                            <option value="black" data-path="black" >Black</option>
+                            <option value="blue" data-path="blue">Blue</option>
+                            <option value="green" data-path="green">Green</option>
+                            <option value="red" data-path="red">Red</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="ra-hover col-md-3 col-sm-4"><i id="display-avatar" class=""></i></div>
+                </div>
+            </div>
+
         <input id="submitRegistration" class="btn btn-success" value="Register" type="submit" />
     </form>
 </div>
 
 <footer th:replace="partials/footer :: footer"></footer>
-<script src="/js/registerPageJS.js"></script>
+<script src="/registerPageJS.js"></script>
 </body>
 </html>
