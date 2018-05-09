@@ -72,14 +72,15 @@ body{
     height: 400px;
     border: 1px solid black;
 }
-#profileHabits{
-    height: 35%;
-    margin-bottom: 15px;
+#profileClanHabits,#profileHabits{
+    height: 100%;
     overflow: scroll;
+    max-height: 230px;
+}
+#profileHabits{
+    margin-bottom: 15px;
 }
 #profileClanHabits{
-    height: 35%;
-    overflow: scroll;
     margin-top: 20px;
 }
 #getMoreHabitsDivBtn{

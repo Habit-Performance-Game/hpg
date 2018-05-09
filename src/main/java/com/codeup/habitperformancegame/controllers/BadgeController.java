@@ -39,8 +39,10 @@ public class BadgeController {
         model.addAttribute("badges", badgeDao.findNotAdded(user.getId()));
         model.addAttribute("currentBadges", userBadgeDao.findNotCompleted(mysql.getId()));
         model.addAttribute("completedBadges", userBadgeDao.findCompleted(mysql.getId()));
-        model.addAttribute("clanBadgesNotAdded",badgeDao.clanNotAdded(mysql.getClan().getId()));
-        model.addAttribute("clanBadgesAdded",badgeDao.clanAdded(mysql.getClan().getId()));
+        if (mysql.getClan()!=null) {
+            model.addAttribute("clanBadgesNotAdded", badgeDao.clanNotAdded(mysql.getClan().getId()));
+            model.addAttribute("clanBadgesAdded", badgeDao.clanAdded(mysql.getClan().getId()));
+        }
         return "badges/select";
     }
 
