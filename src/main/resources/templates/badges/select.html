@@ -15,7 +15,7 @@
     <div class="row">
         <div class="col-sm-4">
                 <ul class="list-group">
-                    <li class="list-group-item text-center">Add Habits</li>
+                    <li class="list-group-item text-center boldTitle">Add Habits</li>
                     <li class="list-group-item" th:each="badge : ${badges}">
                         <span class="habitTitles" th:text="${badge.name}"></span>
                         <i class="fa fa-plus fa-pull-right addHabit" aria-hidden="true" th:attr="data-id=${badge.id}"></i>
@@ -31,7 +31,7 @@
 
         <div class="col-sm-4">
             <ul class="list-group">
-                <li class="list-group-item text-center">Completed Habits</li>
+                <li class="list-group-item text-center boldTitle">Completed Habits</li>
                 <li class="list-group-item" th:each="habit : ${completedBadges}">
                     <span class="habitTitles" th:text="${habit.getBadge().name}"></span>
                     <i class="fas fa-check-circle green fa-pull-right" aria-hidden="true"></i>
@@ -43,7 +43,7 @@
 
         <div class="col-sm-4" th:if="${user.id} == ${user.clan.owner_id}">
             <ul class="list-group">
-                <li class="list-group-item text-center">Add Clan Habits</li>
+                <li class="list-group-item text-center boldTitle">Add Clan Habits</li>
                 <li class="list-group-item" th:each="badge : ${clanBadgesNotAdded}">
                     <span class="habitTitles" th:text="${badge.name}"></span>
                     <i class="fa fa-plus fa-pull-right addClanHabit" aria-hidden="true" th:attr="data-id=${badge.id}"></i>

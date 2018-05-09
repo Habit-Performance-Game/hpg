@@ -15,8 +15,8 @@
         <!--###########  Personal Habits  #############   -->
         <div class="col-sm-6">
             <div id="profileHabits" class="col-sm-12">
-                <ul class="list-group">
-                    <li class="list-group-item text-center">Personal Habits</li>
+                <ul class="list-group fontCinzel">
+                    <li class="list-group-item text-center boldTitle">Personal Habits</li>
                     <li class="list-group-item" th:each="habit : ${habits}">
                         <span class="habitTitles" th:text="${habit.getBadge().name}"></span>
                         <small><span th:text="${habit.getUser_amt()}"></span> of <span th:text="${habit.badge.getReq_amt()}"></span>
@@ -43,9 +43,8 @@
                 </div>
 <!--##################  Clan Habits     ###################-->
                 <div class="col-sm-12" id="profileClanHabits" th:if="${user.clan}!=null">
-                    <ul class="list-group">
-                        <li class="list-group-item text-center">My Clan Habits</li>
-
+                    <ul class="list-group fontCinzel">
+                        <li class="list-group-item text-center boldTitle">My Clan Habits</li>
                         <li class="list-group-item" th:each="habit : ${clanHabits}">
                             <span class="habitTitles" th:text="${habit.getBadge().name}"></span>
                             <small><span th:text="${habit.getUser_amt()}"></span> of <span th:text="${habit.badge.getReq_amt()}"></span>
@@ -68,10 +67,11 @@
             <div id="profileUserInfo">
             <div class="card h-75">
                 <div class="justify-content-between">
-                    <div class="ra-hover col-md-3 col-sm-4"><i th:attr="class=${avatar.url}, style=${user.avatar_color}" />
-                <!--<img class="card-img-top" src="http://pixelartmaker.com/art/e67839ecc7ea933.png" alt="Card image cap" style="width:70px;height:70px;"/>-->
-                     <span th:text="${#authentication.principal.username}" />
-                    </div>
+
+                    <i class="card-img-top" th:attr="class=${avatar.url}, style=${user.avatar_color}"/>
+                        Username: <span style="font-weight: bold" th:text="${#authentication.principal.username}" />
+
+
                 </div>
                 <div class="card-body">
                     <p>HPG Member since: <span id="memberSince" th:text="${user.getCreated_on().toLocaleString()}"></span></p>
