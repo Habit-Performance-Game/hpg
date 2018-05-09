@@ -3,6 +3,7 @@
 $(function () {
     $('[data-toggle="popover"]').popover({
         html : true,
+        placement:"bottom",
         title: "Add Entry",
         content: function() {
             return $("#popover-content").html();
@@ -23,6 +24,7 @@ $('.addHabitId').click(function () {
 $(function () {
     $('[data-toggle="popover2"]').popover({
         html : true,
+        placement:"bottom",
         title: "Add Clan Entry",
         content: function() {
             return $("#clanPopover-content").html();
