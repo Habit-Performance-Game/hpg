@@ -1,5 +1,7 @@
 
-
+body{
+    font-family: 'Cinzel Decorative', cursive;
+}
 
 /******************* CSS for Cards ***************************************/
 .card{margin-bottom: 15px;
@@ -27,16 +29,31 @@
 
 #announcements{
     height: 100%;
+    font-family: 'Permanent Marker', cursive;
 }
 #announcementsHolder{
     margin-bottom: 15px;
+    font-family: 'Permanent Marker', cursive;
+    position: relative;
+}
+
+#editAnnouncements{
+    position: absolute;
+    top: 9%;
+    right: 17%;
+    font-size: 4.1vh;
 }
 #announceText{
     display: block;
-    width: 95%;
-    height: 80%;
+    width: 67%;
+    height: 60%;
     resize: none;
-    margin: auto;
+    border: none;
+    position: absolute;
+    overflow: scroll;
+    background: transparent;
+    top: 20%;
+    left: 18%;
 }
 #saveAnnouncements{
     margin: 5px auto;
@@ -73,4 +90,18 @@
 }
 .green{
     color: green;
+}
+#divClanHabits{
+    margin-bottom: 15px;
+}
+
+.boldTitle{
+    font-weight: 700;
+    font-size: 25px;
+}
+.fontCinzel{
+    font-family: 'Cinzel Decorative', cursive;
+}
+.fontVT323{
+    font-family: 'VT323', monospace;
 }
