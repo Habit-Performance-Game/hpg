@@ -10,4 +10,8 @@ import java.util.List;
 public interface ClanBadgeRepository extends CrudRepository<Clan_Badge, Long> {
     @Query(value = "select * from clan_badges where clan_id = ?1 AND has_completed = TRUE", nativeQuery = true)
     List<Clan_Badge> findCompleted(long id);
+
+    @Query(value = "select * from clan_badges where clan_id = ?1 AND has_completed = FALSE", nativeQuery = true)
+    List<Clan_Badge> findNotCompleted(long id);
+
 }

@@ -41,12 +41,13 @@
                      </ul>
                 </div>
             </div>
+<!--##############  Clan Badges     ####################################  -->
             <div class="col-sm-12">
                 <div class="card">
                     <div class="justify-content-between text-center"><h3>Badges</h3></div>
                     <div class="card-body">
                         <div class="justify-content-between">
-                            <img src="/static/images/badge.png" alt="badge" style="width:25px;height:25px;"/>
+                            <i th:each="complete : ${completedHabits}" th:class="${complete.getBadge().iconClasses}"></i>
                         </div>
                     </div>
                 </div>
