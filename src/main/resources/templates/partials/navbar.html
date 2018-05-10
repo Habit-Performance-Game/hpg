@@ -8,54 +8,90 @@
 
 
 <nav th:fragment="navbar" class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="/">HPG</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
+    <!--<a class="navbar-brand" href="/">HPG</a>-->
+    <!--<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">-->
+        <!--<span class="navbar-toggler-icon"></span>-->
+    <!--</button>-->
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-                <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item" sec:authorize="isAuthenticated()">
-                <a class="nav-link" href="/profile">Profile</a>
-            </li>
-            <li class="nav-item" sec:authorize="isAuthenticated()" th:if="${user.clan} != null">
-                <a class="nav-link" th:href="@{'/clan/' + ${user.clan.id}}">Clan</a>
-            </li>
-            <li class="nav-item" sec:authorize="isAuthenticated()" th:if="${user.clan} == null">
-                <a class="nav-link" href="/clan/join">Clan</a>
-            </li>
-            <li class="nav-item" sec:authorize="isAuthenticated()">
-                <a class="nav-link" href="/messages">Messages</a>
-            </li>
-            <li class="nav-item" sec:authorize="!isAuthenticated()">
-                <a class="nav-link" href="/login">Login</a>
-            </li>
-            <li class="nav-item" sec:authorize="!isAuthenticated()">
-                <a class="nav-link" href="/register">Register</a>
-            </li>
-            <!--<li class="nav-item dropdown">-->
-                <!--<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
-                    <!--Dropdown-->
-                <!--</a>-->
-                <!--<div class="dropdown-menu" aria-labelledby="navbarDropdown">-->
-                    <!--<a class="dropdown-item" href="#">Action</a>-->
-                    <!--<a class="dropdown-item" href="#">Another action</a>-->
-                    <!--<div class="dropdown-divider"></div>-->
-                    <!--<a class="dropdown-item" href="#">Something else here</a>-->
-                <!--</div>-->
+    <!--<div class="collapse navbar-collapse" id="navbarSupportedContent">-->
+        <!--<ul class="navbar-nav mr-auto">-->
+            <!--<li class="nav-item">-->
+                <!--<a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>-->
             <!--</li>-->
-        </ul>
-            <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"/>
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-            </form>
-            <form class="form-inline my-2 my-lg-0" sec:authorize="isAuthenticated()" th:action="@{/logout}" th:method="post">
-                <button class="btn-link btn text-success">Logout</button>
-            </form>
+            <!--<li class="nav-item" sec:authorize="isAuthenticated()">-->
+                <!--<a class="nav-link" href="/profile">Profile</a>-->
+            <!--</li>-->
+            <!--<li class="nav-item" sec:authorize="isAuthenticated()" th:if="${user.clan} != null">-->
+                <!--<a class="nav-link" th:href="@{'/clan/' + ${user.clan.id}}">Clan</a>-->
+            <!--</li>-->
+            <!--<li class="nav-item" sec:authorize="isAuthenticated()" th:if="${user.clan} == null">-->
+                <!--<a class="nav-link" href="/clan/join">Clan</a>-->
+            <!--</li>-->
+            <!--<li class="nav-item" sec:authorize="isAuthenticated()">-->
+                <!--<a class="nav-link" href="/messages">Messages</a>-->
+            <!--</li>-->
+            <!--<li class="nav-item" sec:authorize="!isAuthenticated()">-->
+                <!--<a class="nav-link" href="/login">Login</a>-->
+            <!--</li>-->
+            <!--<li class="nav-item" sec:authorize="!isAuthenticated()">-->
+                <!--<a class="nav-link" href="/register">Register</a>-->
+            <!--</li>-->
+            <!--&lt;!&ndash;<li class="nav-item dropdown">&ndash;&gt;-->
+                <!--&lt;!&ndash;<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">&ndash;&gt;-->
+                    <!--&lt;!&ndash;Dropdown&ndash;&gt;-->
+                <!--&lt;!&ndash;</a>&ndash;&gt;-->
+                <!--&lt;!&ndash;<div class="dropdown-menu" aria-labelledby="navbarDropdown">&ndash;&gt;-->
+                    <!--&lt;!&ndash;<a class="dropdown-item" href="#">Action</a>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<a class="dropdown-item" href="#">Another action</a>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<div class="dropdown-divider"></div>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<a class="dropdown-item" href="#">Something else here</a>&ndash;&gt;-->
+                <!--&lt;!&ndash;</div>&ndash;&gt;-->
+            <!--&lt;!&ndash;</li>&ndash;&gt;-->
+        <!--</ul>-->
+            <!--<form class="form-inline my-2 my-lg-0">-->
+                <!--<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"/>-->
+                <!--<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>-->
+            <!--</form>-->
+            <!--<form class="form-inline my-2 my-lg-0" sec:authorize="isAuthenticated()" th:action="@{/logout}" th:method="post">-->
+                <!--<button class="btn-link btn text-success">Logout</button>-->
+            <!--</form>-->
+    <!--</div>-->
+
+<div class="flex">
+    <div class="rpgui-content">
+        <div class="rpgui-container framed" style="position: relative;">
+            <ul class="nav-ul">
+                <!--<li class="nav-li"><a href="default.asp">Home</a></li>-->
+                <ul class="navbar-nav mr-auto">
+                <li class="nav-li">
+                <a class="" href="/">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-li" sec:authorize="isAuthenticated()">
+                <a class="" href="/profile">Profile</a>
+                </li>
+                <li class="nav-li" sec:authorize="isAuthenticated()" th:if="${user.clan} != null">
+                <a class="" th:href="@{'/clan/' + ${user.clan.id}}">Clan</a>
+                </li>
+                <li class="nav-li" sec:authorize="isAuthenticated()" th:if="${user.clan} == null">
+                <a class="" href="/clan/join">Clan</a>
+                </li>
+                <li class="nav-li" sec:authorize="isAuthenticated()">
+                <a class="" href="/messages">Messages</a>
+                </li>
+                <li class="nav-li" sec:authorize="!isAuthenticated()">
+                <a class="" href="/login">Login</a>
+                </li>
+                <li class="nav-li" sec:authorize="!isAuthenticated()">
+                <a class="" href="/register">Register</a>
+                </li>
+                    <form class="form-inline my-2 my-lg-0" sec:authorize="isAuthenticated()" th:action="@{/logout}" th:method="post">
+                        <button class="rpgui-button" style="float: right; height: 30px;">Logout</button>
+                    </form>
+                </ul>
+            </ul>
+        </div>
     </div>
+</div>
 </nav>
 </body>
 </html>
