@@ -1,6 +1,9 @@
 
 body{
     font-family: 'Cinzel Decorative', cursive;
+    background-color: #79caf9;
+    background-image: url("/images/day-background.jpg");
+    background-size: cover;
 }
 
 
@@ -18,6 +21,14 @@ body{
     background-color: #dde1e3;
 }
 
+/******************* CSS for Login ***************************************/
+.login {
+    width: 500px;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
 
 /******************* CSS for Cards ***************************************/
 .card{margin-bottom: 15px;
