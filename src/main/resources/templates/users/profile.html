@@ -9,7 +9,6 @@
 <div sec:authorize="isAuthenticated()">
 </div>
 
-
 <div class="container">
     <div class="row">
         <!--###########  Personal Habits  #############   -->
@@ -29,7 +28,7 @@
                 <div id="popover-content" class="hiddenElement">
                     <form th:action="@{/habits/entry}" th:method="post">
                         <input type="hidden" id="userBadgeId" name="userBadgeId"/>
-                        Enter Amt: <input type="text" name="amount"/>
+                        Enter Amt: <input class="amountInput" type="text" name="amount"/>
                         <a tabindex="0" class="btn btn-sm btn-danger" role="button" data-dismiss="popover">Close</a>
                         <input type="submit" value="Save" class="btn btn-primary btn-sm saveEntry"/>
                     </form>
@@ -38,6 +37,7 @@
                 <div id="getMoreHabitsDivBtn">
                     <a href="/habits" class="btn btn-primary btn-block">Get more habits</a>
                 </div>
+
 <!--##################  Clan Habits     ###################-->
                 <div class="col-sm-12" id="profileClanHabits" th:if="${user.clan}!=null">
                     <ul class="list-group fontCinzel">
@@ -53,6 +53,7 @@
 
             <div id="clanPopover-content" class="hiddenElement">
                 <form th:action="@{/clan/habits/entry}" th:method="post">
+                    <input type="hidden" name="location" value="profile"/>
                     <input type="hidden" id="clanBadgeId" name="clanBadgeId"/>
                     Enter Amt: <input type="text" name="amount"/>
                     <a tabindex="0" class="btn btn-sm btn-danger" role="button" data-dismiss="popover">Close</a>
@@ -86,7 +87,6 @@
         </div>
     </div>
 </div>
-
 <div th:replace="partials/jsScripts :: scripts"></div>
 </body>
 </html>
