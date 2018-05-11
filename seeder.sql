@@ -35,3 +35,21 @@ INSERT INTO hpg_db.badges (id, icon_classes, name, req_amt, type, category_id) V
 INSERT INTO hpg_db.badges (id, icon_classes, name, req_amt, type, category_id) VALUES (20, 'fas fa-hands fa-2x gold', 'Volunteer 200 hours.', 200, 'clan', 5);
 INSERT INTO hpg_db.badges (id, icon_classes, name, req_amt, type, category_id) VALUES (21, 'fas fa-tint fa-2x silver', 'Drink 800oz of water.', 800, 'clan', 1);
 INSERT INTO hpg_db.badges (id, icon_classes, name, req_amt, type, category_id) VALUES (22, 'fas fa-tint fa-2x gold', 'Drink 1600oz of water.', 1600, 'clan', 1);
+
+#Clans
+
+INSERT INTO hpg_db.clans (id, announcements, created_on, name, owner_id) VALUES (1, null, '2018-05-09 16:33:05', 'Dragons15', 1);
+INSERT INTO hpg_db.clans (id, announcements, created_on, name, owner_id) VALUES (2, null, '2018-05-10 16:43:43', 'HPG-Cool-Guys', 1);
+INSERT INTO hpg_db.clans (id, announcements, created_on, name, owner_id) VALUES (3, null, '2018-05-10 16:43:55', 'Sequoia', 1);
+INSERT INTO hpg_db.clans (id, announcements, created_on, name, owner_id) VALUES (4, null, '2018-05-11 09:55:50', 'The Habit Group', 1);
+
+# Add Users
+INSERT INTO hpg_db.users (id, avatar_color, bio, created_on, email, first_name, last_name, password, username, avatar_id, clan_id) VALUES (1, 'blue', null, '2018-05-09 16:32:01', 'chanel@codeup.com', null, null, '$2a$10$23qzFpzRqWC4wzFStwwR5OCTRJ0o0ON5XIiY/hE466jmX6IjuJrFq', 'Chanel', 4, 2);
+INSERT INTO hpg_db.users (id, avatar_color, bio, created_on, email, first_name, last_name, password, username, avatar_id, clan_id) VALUES (2, 'red', null, '2018-05-11 10:13:46', 'tim@othy.com', null, null, '$2a$10$lXmxjrDVNvP204D4xF9Laev6erC/HIZujmk9ROS1FSvsfGfeI2f9a', 'Timothy54', 3, 4);
+INSERT INTO hpg_db.users (id, avatar_color, bio, created_on, email, first_name, last_name, password, username, avatar_id, clan_id) VALUES (3, 'black', null, '2018-05-11 10:15:05', 'luis@codeup.com', null, null, '$2a$10$ue9onLu/28aKONc/JW7vdudwmmScP77psyyuVk7UJU4coK9X.2eQm', 'Luis', 1, 2);
+INSERT INTO hpg_db.users (id, avatar_color, bio, created_on, email, first_name, last_name, password, username, avatar_id, clan_id) VALUES (4, 'blue', null, '2018-05-11 10:16:43', 'fer@codeup.com', null, null, '$2a$10$zxo65mzysfa9I5aW2nYhF.Y3g3MUhA6mjZZu4cW1erd4CXHC0yrx6', 'Fer', 7, 2);
+INSERT INTO hpg_db.users (id, avatar_color, bio, created_on, email, first_name, last_name, password, username, avatar_id, clan_id) VALUES (5, 'black', null, '2018-05-11 10:17:25', 'justin@codeup.com', null, null, '$2a$10$gM1aHE0Ix95s1.LsS/MjGe8Ga2X4YpOv/nn4OPES8VHDaxntSX0UC', 'Justin', 2, 2);
+INSERT INTO hpg_db.users (id, avatar_color, bio, created_on, email, first_name, last_name, password, username, avatar_id, clan_id) VALUES (6, 'blue', null, '2018-05-11 10:18:15', 'ryan@codeup.com', null, null, '$2a$10$/tnb2ZjEgN/UxX53TFbY7ObnboXdDVbrgyeQYgTffRgSp5xQxvReO', 'Ryan', 8, 2);
+INSERT INTO hpg_db.users (id, avatar_color, bio, created_on, email, first_name, last_name, password, username, avatar_id, clan_id) VALUES (7, 'red', null, '2018-05-11 10:18:44', 'stephen@codeup.com', null, null, '$2a$10$P0fC3zfaFnxDx0w6k4dU5OrMEYXCMpe0JkLE2WkgxR5Y.Qh5HvDZ.', 'Stephen', 10, 2);
+INSERT INTO hpg_db.users (id, avatar_color, bio, created_on, email, first_name, last_name, password, username, avatar_id, clan_id) VALUES (8, 'blue', null, '2018-05-11 10:18:15', 'ryan2@codeup.com', null, null, '$2a$10$fNvaQt3Tv/95fqWBq2cpXe71J.Vq9SD5TEJ7P89AUGQ2XDR4BnhA.', 'Bob', 8, 1);
+INSERT INTO hpg_db.users (id, avatar_color, bio, created_on, email, first_name, last_name, password, username, avatar_id, clan_id) VALUES (9, 'red', null, '2018-05-11 10:18:44', 'stephen2@codeup.com', null, null, '$2a$10$ZNvI.z/XMUOg9dct/VtJGOPsURrSPjYF3pYkIwMIeBoeC68NUnr1m', 'Douglas', 3, 1);
