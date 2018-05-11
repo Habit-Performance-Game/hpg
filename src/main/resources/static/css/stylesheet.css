@@ -1,8 +1,9 @@
 
 body{
     font-family: 'Cinzel Decorative', cursive;
-    background-color: #79caf9;
+    background-color: #7fac71;
     background-image: url("/images/day-background.jpg");
+    background-repeat: no-repeat;
     background-size: cover;
 }
 
