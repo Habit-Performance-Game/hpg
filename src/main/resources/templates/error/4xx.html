@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head th:replace="partials/header :: header('Error')"></head>
+
+<body>
+<th:block th:switch="${error}">
+    <div class="text-center" th:case="'Not Found'">
+        <h1 class="text-center">Page not found!!</h1>
+        <img src="https://media2.giphy.com/media/aekXo7b4bIe76/giphy.gif" alt="" style="width: 60%"/>
+    </div>
+    <div class="text-center" th:case="'Forbidden'">
+        <h1 class="text-center">You don't have permission to view this page.</h1>
+        <img src="https://media2.giphy.com/media/3ohzdQ1IynzclJldUQ/200w.webp" alt=""/>
+    </div>
+</th:block>
+<div class="hiddenElement" th:replace="partials/jsScripts :: scripts"></div>
+</body>
+</html>
