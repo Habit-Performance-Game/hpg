@@ -1,8 +1,10 @@
 
 body{
     font-family: 'Cinzel Decorative', cursive;
-    background-color: #c9cccf;
-    background-image: url("/images/background.png");
+    background-color: #7fac71;
+    background-image: url("/images/day-background.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 
@@ -159,6 +161,8 @@ body{
     position: absolute;
 }
 
+/******************* Colors to change Badges ***************************************/
+
 .red{
     color: red;
 }
@@ -178,3 +182,63 @@ body{
 .silver{
     color: silver;
 }
+
+/******************* RpgUI CSS for Navbar ***************************************/
+
+nav {
+    margin-bottom: 100px;
+}
+.rpgui-content{
+    height: 105px;
+}
+
+.nav-ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+.nav-li {
+    float: left;
+}
+
+.nav-li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+li a:hover {
+    background-color: #111;
+}
+
+.flex {
+    display: flex;
+}
+
+#logoff-li {
+    position: absolute;
+    right: 25px;
+    top: 31%;
+}
+
+/******************* RpgUI CSS for Login ***************************************/
+.login {
+    width: 500px;
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+/******************* Home Page ***************************************/
+
+#home-pic {
+    margin: 0 auto;
+
+}
+
+
+/*******************  ***************************************/
