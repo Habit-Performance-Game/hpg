@@ -185,6 +185,13 @@ body{
 
 /******************* RpgUI CSS for Navbar ***************************************/
 
+nav {
+    margin-bottom: 100px;
+}
+.rpgui-content{
+    height: 105px;
+}
+
 .nav-ul {
     list-style-type: none;
     margin: 0;
@@ -212,6 +219,12 @@ li a:hover {
     display: flex;
 }
 
+#logoff-li {
+    position: absolute;
+    right: 25px;
+    top: 31%;
+}
+
 /******************* RpgUI CSS for Login ***************************************/
 .login {
     width: 500px;
@@ -220,4 +233,12 @@ li a:hover {
     left: 50%;
     transform: translate(-50%, -50%);
 }
+/******************* Home Page ***************************************/
+
+#home-pic {
+    margin: 0 auto;
+
+}
+
+
 /*******************  ***************************************/

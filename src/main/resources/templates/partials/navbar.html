@@ -84,9 +84,11 @@
                 <li class="nav-li" sec:authorize="!isAuthenticated()">
                 <a class="" href="/register">Register</a>
                 </li>
+                    <li id="logoff-li">
                     <form class="form-inline my-2 my-lg-0" sec:authorize="isAuthenticated()" th:action="@{/logout}" th:method="post">
                         <button class="rpgui-button" style="float: right; height: 30px;">Logout</button>
                     </form>
+                    </li>
                 </ul>
             </ul>
         </div>
