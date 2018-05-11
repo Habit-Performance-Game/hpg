@@ -10,10 +10,14 @@ $(function () {
         }
     })
 });
+
 $('.myPopover').on('shown.bs.popover', function () {
     $('.btn-danger').click(function(){
         $('.popover').popover('hide')
     })
+    $(".saveEntry").click(function (e) {
+        $('.popover').popover('hide')
+    });
 })
 
 $('.addHabitId').click(function () {

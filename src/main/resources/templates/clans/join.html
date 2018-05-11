@@ -13,7 +13,7 @@
         You are not part of a clan.
     </p>
     <p th:if="${user.clan}!=null">
-        You are currently part of Clan: <span th:text="${user.clan.name}"/>
+        You are currently part of Clan: <span style="font-weight: bold" th:text="${user.clan.name}"/>
         <!--<p sec:authorize="isAuthenticated()">clanName: <span th:text="${#authentication.principal.clan.name}" /></p>-->
     </p>
 
