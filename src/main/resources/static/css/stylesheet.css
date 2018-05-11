@@ -190,6 +190,7 @@ nav {
 }
 .rpgui-content{
     height: 105px;
+    position: absolute;
 }
 
 .nav-ul {
