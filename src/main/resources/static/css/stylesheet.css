@@ -64,6 +64,8 @@ body{
     font-size: 4.1vh;
 }
 #announceText{
+    font-size: 1vw;
+    font-family: 'Press Start 2P',cursive;
     display: block;
     width: 67%;
     height: 60%;
@@ -129,20 +131,25 @@ body{
 .fontNiconne{
     font-family: 'Niconne', cursive;
 }
+.gameFont{
+    font-family: 'Press Start 2P',cursive;
+}
 .clanMemberListItems{
     text-align: center;
 }
 #clanMemberListTitle{
-    top: 0.60790vw;
+    top: 1.50790vw;
     left: 6.78824vw;
-    font-size: 2.8vw;
+    font-size: 1.8vw;
+    font-family: 'Press Start 2P',cursive;
 }
 #clanMemberList{
+    font-family: 'Press Start 2P',cursive;
     position: absolute;
     top: 5.572441vw;
-    left: 5.06585vw;
+    left: 4.36585vw;
     max-width: 19.25025vw;
-    font-size: 2.33029vw;
+    font-size: 1.23029vw;
     max-height: 17.2239vw;
     overflow: scroll;
     list-style-type: none;
