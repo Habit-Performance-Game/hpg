@@ -10,10 +10,14 @@ $(function () {
         }
     })
 });
+
 $('.myPopover').on('shown.bs.popover', function () {
     $('.btn-danger').click(function(){
         $('.popover').popover('hide')
     })
+    $(".saveEntry").click(function (e) {
+        $('.popover').popover('hide')
+    });
 })
 
 $('.addHabitId').click(function () {
@@ -61,4 +65,24 @@ $('.myClanPopover').on('shown.bs.popover', function () {
 $('.addClanHabitId').click(function () {
     var a = $(this);
     $('#clanProfileBadgeId').val(a.attr('data-id'));
+});
+
+$(document).ready(function(){
+   $('.badgeClass').each(function (i) {
+       $(this).hide().css('position','absolute').delay(1800*i).fadeIn(1000, function () {
+           $(this).animate({fontSize: '75px'},1500,function () {
+               $(this).css('font-size','32px');
+               $(this).css('position','initial');
+           });
+       });
+   });
+
+    $('.badgeClassClan').each(function (i) {
+        $(this).hide().css('position','absolute').delay(1800*i).fadeIn(1000, function () {
+            $(this).animate({fontSize: '75px'},1500,function () {
+                $(this).css('font-size','32px');
+                $(this).css('position','initial');
+            });
+        });
+    })
 });

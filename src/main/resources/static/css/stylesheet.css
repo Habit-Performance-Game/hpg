@@ -211,6 +211,7 @@ nav {
 .rpgui-content{
     height: 105px;
     top: auto;
+    /*position: absolute;*/
 }
 
 .nav-ul {
@@ -244,6 +245,19 @@ li a:hover {
     position: absolute;
     right: 25px;
     top: 31%;
+}
+.badgeClass{
+    display: none;
+    top:5vw;
+    right: 5vw;
+}
+.badgeClassClan{
+    display: none;
+    top:2.97vw;
+    right: 3.46vw;
+}
+#clanBadgeHolder{
+    height: 10.58vw;
 }
 
 /******************* RpgUI CSS for Login ***************************************/
