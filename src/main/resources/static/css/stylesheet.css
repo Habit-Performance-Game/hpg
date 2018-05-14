@@ -240,5 +240,21 @@ li a:hover {
 
 }
 
+/******************* RpgUI for Select ***************************************/
+
+.select {
+    width: 500px;
+    position: absolute;
+    width: 25%;
+    font-family: 'Cinzel Decorative', cursive;
+}
+
+.list-group-item {
+    background-color: #d27d2c;
+}
+
+#heb {
+    font-family: 'Cinzel Decorative', cursive;
+}
 
 /*******************  ***************************************/

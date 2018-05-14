@@ -5,54 +5,95 @@
 <nav th:replace="partials/navbar :: navbar"></nav>
 
 
-<h1>Please select a new habit.</h1>
+<!--<h1>Please select a new habit.</h1>-->
 <div sec:authorize="isAuthenticated()">
 </div>
 
 
 
-<div class="container">
-    <div class="row">
-        <div class="col-sm-4">
+<!--<div class="container">-->
+<!--<div class="row">-->
+<!--<div class="col-sm-4">-->
+<!--<ul class="list-group">-->
+<!--<li class="list-group-item text-center boldTitle">Add Habits</li>-->
+<!--<li class="list-group-item" th:each="badge : ${badges}">-->
+<!--<span class="habitTitles" th:text="${badge.name}"></span>-->
+<!--<i class="fa fa-plus fa-pull-right addHabit" aria-hidden="true" th:attr="data-id=${badge.id}"></i>-->
+<!--</li>-->
+<!--<li class="list-group-item" th:each="currentBadge : ${currentBadges}">-->
+<!--<span class="habitTitles" th:text="${currentBadge.getBadge().name}"></span>-->
+<!--<i class="fa fa-trash-alt fa-pull-right removeHabit" aria-hidden="true" th:attr="data-id=${currentBadge.id}"></i>-->
+<!--</li>-->
+<!--</ul>-->
+<!--</div>-->
+
+<!--&lt;!&ndash; ##################   Completed Habits  ###################       &ndash;&gt;-->
+
+<!--<div class="col-sm-4">-->
+<!--<ul class="list-group">-->
+<!--<li class="list-group-item text-center boldTitle">Completed Habits</li>-->
+<!--<li class="list-group-item" th:each="habit : ${completedBadges}">-->
+<!--<span class="habitTitles" th:text="${habit.getBadge().name}"></span>-->
+<!--<i class="fas fa-check-circle green fa-pull-right" aria-hidden="true"></i>-->
+<!--</li>-->
+<!--</ul>-->
+<!--</div>-->
+
+<!--&lt;!&ndash; ############   Add Clan Habits  ###################       &ndash;&gt;-->
+
+<!--<div class="col-sm-4" th:if="${user.clan}!=null">-->
+<!--<ul class="list-group" th:if="${user.id} == ${user.clan.owner_id}">-->
+<!--<li class="list-group-item text-center boldTitle">Add Clan Habits</li>-->
+<!--<li class="list-group-item" th:each="badge : ${clanBadgesNotAdded}">-->
+<!--<span class="habitTitles" th:text="${badge.name}"></span>-->
+<!--<i class="fa fa-plus fa-pull-right addClanHabit" aria-hidden="true" th:attr="data-id=${badge.id}"></i>-->
+<!--</li>-->
+<!--<li class="list-group-item" th:each="currentBadge : ${clanBadgesAdded}">-->
+<!--<span class="habitTitles" th:text="${currentBadge.name}"></span>-->
+<!--<i class="fa fa-trash-alt fa-pull-right removeClanHabit" aria-hidden="true" th:attr="data-id=${currentBadge.id}"></i>-->
+<!--</li>-->
+<!--</ul>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<div class="select">
+    <div class=" rpgui-content ">
+        <div style="display: flex; justify-content: space-around; flex-direction: row;">
+            <div class="rpgui-container framed-golden-2">
                 <ul class="list-group">
-                    <li class="list-group-item text-center boldTitle">Add Habits</li>
-                    <li class="list-group-item" th:each="badge : ${badges}">
+                    <li id="heb" class="list-group-item  text-center boldTitle">Add Habits</li>
+                    <li id="heb" class="list-group-item " th:each="badge : ${badges}">
                         <span class="habitTitles" th:text="${badge.name}"></span>
                         <i class="fa fa-plus fa-pull-right addHabit" aria-hidden="true" th:attr="data-id=${badge.id}"></i>
                     </li>
-                    <li class="list-group-item" th:each="currentBadge : ${currentBadges}">
+                    <li class="list-group-item " th:each="currentBadge : ${currentBadges}">
                         <span class="habitTitles" th:text="${currentBadge.getBadge().name}"></span>
                         <i class="fa fa-trash-alt fa-pull-right removeHabit" aria-hidden="true" th:attr="data-id=${currentBadge.id}"></i>
                     </li>
                 </ul>
-         </div>
-
-     <!-- ##################   Completed Habits  ###################       -->
-
-        <div class="col-sm-4">
-            <ul class="list-group">
-                <li class="list-group-item text-center boldTitle">Completed Habits</li>
-                <li class="list-group-item" th:each="habit : ${completedBadges}">
-                    <span class="habitTitles" th:text="${habit.getBadge().name}"></span>
-                    <i class="fas fa-check-circle green fa-pull-right" aria-hidden="true"></i>
-                </li>
-            </ul>
-        </div>
-
-     <!-- ############   Add Clan Habits  ###################       -->
-
-        <div class="col-sm-4" th:if="${user.clan}!=null">
-            <ul class="list-group" th:if="${user.id} == ${user.clan.owner_id}">
-                <li class="list-group-item text-center boldTitle">Add Clan Habits</li>
-                <li class="list-group-item" th:each="badge : ${clanBadgesNotAdded}">
-                    <span class="habitTitles" th:text="${badge.name}"></span>
-                    <i class="fa fa-plus fa-pull-right addClanHabit" aria-hidden="true" th:attr="data-id=${badge.id}"></i>
-                </li>
-                <li class="list-group-item" th:each="currentBadge : ${clanBadgesAdded}">
-                    <span class="habitTitles" th:text="${currentBadge.name}"></span>
-                    <i class="fa fa-trash-alt fa-pull-right removeClanHabit" aria-hidden="true" th:attr="data-id=${currentBadge.id}"></i>
-                </li>
-            </ul>
+            </div>
+            <div class="rpgui-container framed-golden-2">
+                <ul class="list-group">
+                    <li id="heb" class="list-group-item  text-center boldTitle">Completed Habits</li>
+                    <li id="heb" class="list-group-item " th:each="habit : ${completedBadges}">
+                        <span class="habitTitles" th:text="${habit.getBadge().name}"></span>
+                        <i class="fas fa-check-circle green fa-pull-right" aria-hidden="true"></i>
+                    </li>
+                </ul>
+            </div>
+            <div class="rpgui-container framed-golden-2" th:if="${user.clan}!=null">
+                <ul class="list-group" th:if="${user.id} == ${user.clan.owner_id}">
+                    <li id="heb" class="list-group-item text-center boldTitle ">Add Clan Habits</li>
+                    <li id="heb" class="list-group-item " th:each="badge : ${clanBadgesNotAdded}">
+                        <span class="habitTitles" th:text="${badge.name}"></span>
+                        <i class="fa fa-plus fa-pull-right addClanHabit" aria-hidden="true" th:attr="data-id=${badge.id}"></i>
+                    </li>
+                    <li class="list-group-item " th:each="currentBadge : ${clanBadgesAdded}">
+                        <span class="habitTitles" th:text="${currentBadge.name}"></span>
+                        <i class="fa fa-trash-alt fa-pull-right removeClanHabit" aria-hidden="true" th:attr="data-id=${currentBadge.id}"></i>
+                    </li>
+                </ul>
+            </div>
         </div>
     </div>
 </div>
@@ -62,6 +103,22 @@
 
 <div class="hiddenElement" th:replace="partials/jsScripts :: scripts"></div>
 <script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
