@@ -67,10 +67,13 @@ $('.addClanHabitId').click(function () {
     $('#clanProfileBadgeId').val(a.attr('data-id'));
 });
 
+var delayTime = 1000;
+var fadeTime = 800;
+var growTime = 700;
 $(document).ready(function(){
    $('.badgeClass').each(function (i) {
-       $(this).hide().css('position','absolute').delay(1800*i).fadeIn(1000, function () {
-           $(this).animate({fontSize: '75px'},1500,function () {
+       $(this).hide().css('position','absolute').delay(delayTime*i).fadeIn(fadeTime, function () {
+           $(this).animate({fontSize: '75px'},growTime,function () {
                $(this).css('font-size','32px');
                $(this).css('position','initial');
            });
@@ -78,8 +81,8 @@ $(document).ready(function(){
    });
 
     $('.badgeClassClan').each(function (i) {
-        $(this).hide().css('position','absolute').delay(1800*i).fadeIn(1000, function () {
-            $(this).animate({fontSize: '75px'},1500,function () {
+        $(this).hide().css('position','absolute').delay(delayTime*i).fadeIn(fadeTime, function () {
+            $(this).animate({fontSize: '75px'},growTime,function () {
                 $(this).css('font-size','32px');
                 $(this).css('position','initial');
             });
