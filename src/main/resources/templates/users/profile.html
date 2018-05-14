@@ -78,7 +78,7 @@
                     <br />
                     Badges:
                     <div class="justify-content-between">
-                        <i th:each="complete : ${completedHabits}" th:class="${complete.getBadge().iconClasses}"></i>
+                        <i th:each="complete : ${completedHabits}" class="badgeClass" th:classappend="${complete.getBadge().iconClasses}"></i>
                     </div>
                 </div>
             </div>
