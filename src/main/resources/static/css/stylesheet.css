@@ -82,7 +82,7 @@ body{
 
 .habitTitles{
     overflow: hidden;
-    width: 50%;
+    width: 70%;
     display: inline-block;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -183,6 +183,26 @@ body{
     color: silver;
 }
 
+.rpgBrown * {
+    background-color: #d27d2c !important;
+    border: 0px !important;
+}
+
+.rgpGrey * {
+    background-color: #4a4e4a !important;
+    border: 0px !important;
+}
+
+.faImportant {
+    font-family: Font Awesome\ 5 Free !important;
+    font-size: 1.25rem;
+}
+.rpgui-content-select {
+    height: 100% !important;
+}
+
+
+
 /******************* RpgUI CSS for Navbar ***************************************/
 
 nav {
@@ -190,6 +210,7 @@ nav {
 }
 .rpgui-content{
     height: 105px;
+    top: auto;
 }
 
 .nav-ul {
@@ -246,15 +267,32 @@ li a:hover {
     width: 500px;
     position: absolute;
     width: 25%;
-    font-family: 'Cinzel Decorative', cursive;
 }
 
-.list-group-item {
-    background-color: #d27d2c;
+.habitComplete {
+    background-position-x: 25% !important;
+    position: unset;
+    width: 30%;
 }
 
-#heb {
-    font-family: 'Cinzel Decorative', cursive;
+.habitAdd {
+    background-position-x: center !important;
+    position: unset;
+    width: 30%;
 }
+
+.habitClan {
+    background-position-x: 75% !important;
+    position: unset;
+    width: 30%;
+}
+
+.selectFont {
+    font-family: 'Cinzel Decorative', cursive !important;
+    font-size: 1.2em !important;
+}
+
+
+
 
 /*******************  ***************************************/
