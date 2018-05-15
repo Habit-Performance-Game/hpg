@@ -64,6 +64,8 @@ body{
     font-size: 4.1vh;
 }
 #announceText{
+    font-size: 1vw;
+    font-family: 'Press Start 2P',cursive;
     display: block;
     width: 67%;
     height: 60%;
@@ -82,7 +84,7 @@ body{
 
 .habitTitles{
     overflow: hidden;
-    width: 50%;
+    width: 70%;
     display: inline-block;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -129,20 +131,25 @@ body{
 .fontNiconne{
     font-family: 'Niconne', cursive;
 }
+.gameFont{
+    font-family: 'Press Start 2P',cursive;
+}
 .clanMemberListItems{
     text-align: center;
 }
 #clanMemberListTitle{
-    top: 0.60790vw;
+    top: 1.50790vw;
     left: 6.78824vw;
-    font-size: 2.8vw;
+    font-size: 1.8vw;
+    font-family: 'Press Start 2P',cursive;
 }
 #clanMemberList{
+    font-family: 'Press Start 2P',cursive;
     position: absolute;
     top: 5.572441vw;
-    left: 5.06585vw;
+    left: 4.36585vw;
     max-width: 19.25025vw;
-    font-size: 2.33029vw;
+    font-size: 1.23029vw;
     max-height: 17.2239vw;
     overflow: scroll;
     list-style-type: none;
@@ -183,6 +190,26 @@ body{
     color: silver;
 }
 
+.rpgBrown * {
+    background-color: #d27d2c !important;
+    border: 0px !important;
+}
+
+.rgpGrey * {
+    background-color: #4a4e4a !important;
+    border: 0px !important;
+}
+
+.faImportant {
+    font-family: Font Awesome\ 5 Free !important;
+    font-size: 1.25rem;
+}
+.rpgui-content-select {
+    height: 100% !important;
+}
+
+
+
 /******************* RpgUI CSS for Navbar ***************************************/
 
 nav {
@@ -190,7 +217,8 @@ nav {
 }
 .rpgui-content{
     height: 105px;
-    position: absolute;
+    top: auto;
+    /*position: absolute;*/
 }
 
 .nav-ul {
@@ -225,6 +253,19 @@ li a:hover {
     right: 25px;
     top: 31%;
 }
+.badgeClass{
+    display: none;
+    top:5vw;
+    right: 5vw;
+}
+.badgeClassClan{
+    display: none;
+    top:2.97vw;
+    right: 3.46vw;
+}
+#clanBadgeHolder{
+    height: 10.58vw;
+}
 
 /******************* RpgUI CSS for Login ***************************************/
 .login {
@@ -240,6 +281,39 @@ li a:hover {
     margin: 0 auto;
 
 }
+
+/******************* RpgUI for Select ***************************************/
+
+.select {
+    width: 500px;
+    position: absolute;
+    width: 25%;
+}
+
+.habitComplete {
+    background-position-x: 25% !important;
+    position: unset;
+    width: 30%;
+}
+
+.habitAdd {
+    background-position-x: center !important;
+    position: unset;
+    width: 30%;
+}
+
+.habitClan {
+    background-position-x: 75% !important;
+    position: unset;
+    width: 30%;
+}
+
+.selectFont {
+    font-family: 'Cinzel Decorative', cursive !important;
+    font-size: 1.2em !important;
+}
+
+
 
 
 /*******************  ***************************************/

@@ -57,11 +57,11 @@
             </div>
 <!--##############  Clan Badges     ####################################  -->
             <div class="col-sm-12">
-                <div class="card">
+                <div id="clanBadgeHolder" class="card">
                     <div class="justify-content-between text-center"><h3>Badges: </h3></div>
                     <div class="card-body">
                         <div class="justify-content-between">
-                            <i th:each="complete : ${completedHabits}" th:class="${complete.getBadge().iconClasses}"></i>
+                            <i th:each="complete : ${completedHabits}" class="badgeClassClan" th:classappend="${complete.getBadge().iconClasses}"></i>
                         </div>
                     </div>
                 </div>
@@ -70,7 +70,7 @@
     </div>
 
 
-<div class="row">
+<div class="row hiddenElement">
     <div class="col-sm-4">
         <div class="col-sm-12">
             <div style="width: 100%;height: 400px;overflow-scrolling: auto;" id="sb_chat"></div>
