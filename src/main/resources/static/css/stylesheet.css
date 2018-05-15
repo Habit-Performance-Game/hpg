@@ -313,6 +313,17 @@ li a:hover {
     font-size: 1.2em !important;
 }
 
+
+.selectRPG * {
+    font-family: RPGAwesome !important;
+}
+
+.registerCenter {
+    right: auto;
+    margin-left: 25%;
+    margin-top: 10px;
+}
+
 /************************About Us page***************************/
 .about-card{
     float: left;
