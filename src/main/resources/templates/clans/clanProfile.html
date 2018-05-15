@@ -12,7 +12,7 @@
     <div class="rpgui-container framed profileContainers removePadding firstContainer">
         <h2 id="clanMemberListTitle" class="text-center absolutePosition">Members</h2>
         <ul class="removePadding" id="clanMemberList">
-            <li class="clanMemberListItems" th:each="member : ${clan.users}" th:text="${member.username}"></li>
+            <li th:each="member : ${clan.users}" th:text="${member.username}"></li>
         </ul>
     </div>
 </div>
@@ -68,8 +68,9 @@
         <input type="hidden" name="location" value="clan"/>
         <input type="hidden" id="clanProfileBadgeId" name="clanBadgeId"/>
         Enter Amt: <input type="text" name="amount"/>
-        <a tabindex="0" class="btn btn-sm btn-danger" role="button" data-dismiss="popover">Close</a>
-        <input type="submit" value="Save" class="btn btn-primary btn-sm saveClanEntry"/>
+        <!--<a tabindex="0" class="btn btn-sm closePop" role="button" data-dismiss="popover">Close</a>-->
+        <a tabindex="0" class="btn btn-sm closePop" role="button" data-dismiss="popover"><input value="Close" class="rpgui-button popBtn"/></a>
+        <input type="submit" value="Save" class="rpgui-button popBtn saveClanEntry"/>
     </form>
 </div>
 

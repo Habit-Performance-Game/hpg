@@ -110,6 +110,7 @@ body{
 }
 #profileHeading{
     margin-bottom: 25px;
+    font-weight: bold;
 }
 .green{
     color: green;
@@ -134,9 +135,6 @@ body{
 .gameFont{
     font-family: 'Press Start 2P',cursive;
 }
-.clanMemberListItems{
-    text-align: center;
-}
 #clanMemberListTitle{
     top: 1.50790vw;
     left: 6.78824vw;
@@ -159,6 +157,7 @@ body{
 }
 #clanProfileTitle{
     margin-bottom: 3.03951vw;
+    font-weight: bold;
 }
 .relativePosition{
     position: relative;
@@ -212,7 +211,7 @@ body{
 /******************* RpgUI CSS for Navbar ***************************************/
 
 nav {
-    margin-bottom: 100px;
+    margin-bottom: 115px;
 }
 .rpgui-content{
     height: 105px;
@@ -393,6 +392,7 @@ li a:hover {
     top: 26.91vh;
     right: 3.66vw;
     font-size: 1.2em;
+    color: white !important;
 }
 
 .containerButton{
@@ -455,4 +455,18 @@ thead tr *{
 #noHeight{
     bottom: 0 !important;
     /*height: 0 !important;*/
+}
+.popover-header, .popover-body{
+    font-weight: bold;
+}
+.popover-body{
+    background-color: #79cafa;
+}
+.popBtn{
+    padding-left: 0px;
+    padding-right: 0px;
+    width: 80px;
+    height: 40px;
+    min-width: unset;
+    text-align: center;
 }

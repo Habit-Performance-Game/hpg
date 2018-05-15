@@ -52,5 +52,10 @@
 </div>
 
 <div class="hiddenElement" th:replace="partials/jsScripts :: scripts"></div>
+<script>
+    $('#body, #title').focus(function(){
+        $(this).css('color','white')
+    })
+</script>
 </body>
 </html>

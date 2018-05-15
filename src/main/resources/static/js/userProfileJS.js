@@ -12,7 +12,7 @@ $(function () {
 });
 
 $('.myPopover').on('shown.bs.popover', function () {
-    $('.btn-danger').click(function(){
+    $('.closePop').click(function(){
         $('.popover').popover('hide')
     })
     $(".saveEntry").click(function (e) {
@@ -36,7 +36,7 @@ $(function () {
     })
 });
 $('.myClanPopover').on('shown.bs.popover', function () {
-    $('.btn-danger').click(function(){
+    $('.closePop').click(function(){
         $('.popover').popover('hide')
     })
 })
@@ -57,7 +57,7 @@ $(function () {
     })
 });
 $('.myClanPopover').on('shown.bs.popover', function () {
-    $('.btn-danger').click(function(){
+    $('.closePop').click(function(){
         $('.popover').popover('hide')
     })
 })
