@@ -8,24 +8,29 @@
     <ul th:replace="messages/index :: messageNav"></ul>
 
     <!--<h1>Here are your messages</h1>-->
-    <table class="table">
-        <thead class="thead-dark">
-        <tr>
-            <th scope="col">#</th>
-            <th scope="col">Title</th>
-            <th scope="col">Sent To</th>
-            <th scope="col">Date</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr th:each="message,iterStat : ${user.created_messages}">
-            <th class="messageNumber" scope="row" th:text="${iterStat.count}"></th>
-            <td><a th:href="@{'/messages/' + ${message.id}}" th:text="${message.title}"></a></td>
-            <td class="sentToColumnNames"><span th:each="receiver : ${message.sent_to}" th:text="${receiver.username} + ', '"> </span></td>
-            <td th:text="${message.created_on}"></td>
-        </tr>
-        </tbody>
-    </table>
+    <div class="rpgui-content rpgui-messages forceFont">
+        <div class="rpgui-container framed-grey">
+            <table class="table">
+                <thead class="thead-dark">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Sent To</th>
+                    <th scope="col">Date</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="message,iterStat : ${user.created_messages}">
+                    <th class="messageNumber" scope="row" th:text="${iterStat.count}"></th>
+                    <td><a th:href="@{'/messages/' + ${message.id}}" th:text="${message.title}"></a></td>
+                    <td class="sentToColumnNames"><span th:each="receiver : ${message.sent_to}" th:text="${receiver.username} + ', '"> </span></td>
+                    <td th:text="${message.created_on}"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
 </div>
 
 <div class="hiddenElement" th:replace="partials/jsScripts :: scripts"></div>

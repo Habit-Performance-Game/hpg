@@ -67,9 +67,9 @@ $('.addClanHabitId').click(function () {
     $('#clanProfileBadgeId').val(a.attr('data-id'));
 });
 
-var delayTime = 1000;
-var fadeTime = 800;
-var growTime = 700;
+var delayTime = 300;
+var fadeTime = 300;
+var growTime = 400;
 $(document).ready(function(){
    $('.badgeClass').each(function (i) {
        $(this).hide().css('position','absolute').delay(delayTime*i).fadeIn(fadeTime, function () {
@@ -81,11 +81,8 @@ $(document).ready(function(){
    });
 
     $('.badgeClassClan').each(function (i) {
-        $(this).hide().css('position','absolute').delay(delayTime*i).fadeIn(fadeTime, function () {
-            $(this).animate({fontSize: '75px'},growTime,function () {
-                $(this).css('font-size','32px');
-                $(this).css('position','initial');
-            });
+        $(this).hide().delay(delayTime*i).fadeIn(fadeTime, function () {
+                $(this).css('font-size','51px');
         });
     })
 });

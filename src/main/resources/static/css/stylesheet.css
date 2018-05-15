@@ -53,38 +53,38 @@ body{
 }
 #announcementsHolder{
     margin-bottom: 15px;
-    font-family: 'Permanent Marker', cursive;
-    position: relative;
+    /*font-family: 'Permanent Marker', cursive;*/
+    /*position: relative;*/
 }
 
 #editAnnouncements{
-    position: absolute;
-    top: 9%;
-    right: 17%;
     font-size: 4.1vh;
 }
 #announceText{
     font-size: 1vw;
     font-family: 'Press Start 2P',cursive;
     display: block;
-    width: 67%;
-    height: 60%;
+    /*width: 67%;*/
+    height: 33vh;
     resize: none;
     border: none;
-    position: absolute;
-    overflow: scroll;
-    background: transparent;
-    top: 20%;
-    left: 18%;
+    /*position: absolute;*/
+    /*overflow: scroll;*/
+    /*background: transparent;*/
+    /*top: 20%;*/
+    /*left: 18%;*/
 }
 #saveAnnouncements{
     margin: 5px auto;
+    width: 90%;
+    position: absolute;
+    bottom: 0;
 }
 
 
 .habitTitles{
     overflow: hidden;
-    width: 70%;
+    width: 65%;
     display: inline-block;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -144,14 +144,13 @@ body{
     font-family: 'Press Start 2P',cursive;
 }
 #clanMemberList{
-    font-family: 'Press Start 2P',cursive;
+    /*font-family: 'Press Start 2P',cursive;*/
     position: absolute;
     top: 5.572441vw;
-    left: 4.36585vw;
+    /*left: 4.36585vw;*/
     max-width: 19.25025vw;
     font-size: 1.23029vw;
     max-height: 17.2239vw;
-    overflow: scroll;
     list-style-type: none;
 }
 #memberListDiv{
@@ -260,8 +259,9 @@ li a:hover {
 }
 .badgeClassClan{
     display: none;
-    top:2.97vw;
+    top:-2vw;
     right: 3.46vw;
+    background-color: transparent !important;
 }
 #clanBadgeHolder{
     height: 10.58vw;
@@ -349,3 +349,95 @@ li a:hover {
 
 
 /*******************  ***************************************/
+.profileContainers{
+    font-family: 'Cinzel Decorative', cursive !important;
+    height:56.6vh;
+    width:26.16vw;
+}
+.forceFont *{
+    font-family: 'Cinzel Decorative', cursive !important;
+    background-color: #4e494e !important;
+}
+.faImportant{
+    font-family: Font Awesome\ 5 Free !important;
+}
+.raImportant{
+    font-family: RPGAwesome !important;
+}
+.firstContainer{
+    top: 26.91vh;
+    left: 3.66vw;
+    font-size: 1.2em;
+}
+.profileContainers li{
+    margin-left: 0 !important;
+    border: 0;
+}
+.secondContainer{
+    top: 26.91vh;
+    left: 36.66vw;
+    font-size: 1.2em;
+}
+.thirdContainer{
+    top: 26.91vh;
+    right: 3.66vw;
+    font-size: 1.2em;
+}
+
+.containerButton{
+    position: absolute;
+    bottom: 0;
+    left: 4.4vw;
+    width: 210px;
+}
+.clanBadgesContainer{
+    bottom: 3vh;
+    right: 3.66vw;
+    width: 93vw;
+    height: 12vh;
+    color: white;
+    padding-bottom: 0 !important;
+    padding-top: 0 !important;
+}
+#clanBadgeAlign{
+    position: absolute;
+    bottom: 2vh;
+}
+#clanBadgeDiv{
+    display: inline;
+    margin-left: 10vw;
+}
+
+.removePadding{
+    padding-left: 0;
+    padding-right: 0;
+}
+
+/*Messages*/
+.rpgui-messages{
+    position: inherit;
+    height: inherit !important;
+}
+tbody tr *{
+    color: black;
+    font-weight: bold;
+    font-size: 1.25vw;
+}
+thead tr *{
+    font-weight: bold;
+    font-size: 1.5vw;
+}
+#newMessageDiv{
+    position: inherit !important;
+}
+.messageNav{
+    width: fit-content;
+    margin: auto;
+}
+.divInDivMessage{
+    position: absolute;
+    left: 25vw;
+    width: 50vw;
+    top: 28vh;
+    color: white;
+}

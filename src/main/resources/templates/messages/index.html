@@ -5,37 +5,42 @@
 <nav th:replace="partials/navbar :: navbar"></nav>
 
 <div class="container">
-<ul class="nav nav-tabs" th:fragment="messageNav">
-    <li class="nav-item">
-        <a class="nav-link messageLinks" href="/messages">Inbox</a>
+
+<ul class="nav messageNav" th:fragment="messageNav">
+    <li>
+        <a href="/messages"><button class="rpgui-button">Inbox</button></a>
     </li>
-    <li class="nav-item">
-        <a class="nav-link messageLinks" href="/messages/sent">Sent Messages</a>
+    <li>
+        <a href="/messages/sent"><button class="rpgui-button">Sent Messages</button></a>
     </li>
-    <li class="nav-item">
-        <a class="nav-link messageLinks" href="/messages/create">New Message</a>
+    <li>
+        <a href="/messages/create"><button class="rpgui-button">New Message</button></a>
     </li>
 </ul>
 
-    <!--<h1>Here are your messages</h1>-->
-    <table class="table">
-        <thead class="thead-dark">
-        <tr>
-            <th scope="col">#</th>
-            <th scope="col">Title</th>
-            <th scope="col">Name of Sender</th>
-            <th scope="col">Date</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr th:each="message,iterStat : ${user.messages}">
-            <th class="messageNumber" scope="row" th:text="${iterStat.count}"></th>
-            <td><a th:href="@{'/messages/' + ${message.id}}" th:text="${message.title}"></a></td>
-            <td th:text="${message.created_by.username}"></td>
-            <td th:text="${message.created_on}"></td>
-        </tr>
-        </tbody>
-    </table>
+    <div class="rpgui-content rpgui-messages forceFont">
+        <div class="rpgui-container framed-grey">
+            <table class="table">
+                <thead class="thead-dark">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Name of Sender</th>
+                    <th scope="col">Date</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="message,iterStat : ${user.messages}">
+                    <th class="messageNumber" scope="row" th:text="${iterStat.count}"></th>
+                    <td><a th:href="@{'/messages/' + ${message.id}}" th:text="${message.title}"></a></td>
+                    <td th:text="${message.created_by.username}"></td>
+                    <td th:text="${message.created_on}"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
 </div>
 
 <div class="hiddenElement" th:replace="partials/jsScripts :: scripts"></div>

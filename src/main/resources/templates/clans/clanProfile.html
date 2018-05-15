@@ -7,69 +7,74 @@
 
 <h1 id="clanProfileTitle" class="text-center" th:text="${clan.name}"></h1>
 
+<!--###########  First Container  Members  #############   -->
+<div class="rpgui-content forceFont">
+    <div class="rpgui-container framed profileContainers removePadding firstContainer">
+        <h2 id="clanMemberListTitle" class="text-center absolutePosition">Members</h2>
+        <ul class="removePadding" id="clanMemberList">
+            <li class="clanMemberListItems" th:each="member : ${clan.users}" th:text="${member.username}"></li>
+        </ul>
+    </div>
+</div>
 
-    <div class="row">
-        <div  id="memberListDiv" class="col-sm-3 relativePosition fontNiconne">
-            <img src="/images/scrollPaper.png" alt="" style="width: 100%"/>
-            <!--<div class="col-sm-12">-->
-                <h2 id="clanMemberListTitle" class="text-center absolutePosition">Members</h2>
-                <ul id="clanMemberList">
-                    <li class="clanMemberListItems" th:each="member : ${clan.users}" th:text="${member.username}"></li>
-                </ul>
-            <!--</div>-->
-        </div>
-        <!--<div class="col-sm-1"></div>-->
-        <div id="announcementsHolder" class="col-sm-4">
-            <img src="/images/note.png" alt="ClanAnnouncements" style="width: 100%"/>
-            <i id="editAnnouncements" class="far fa-edit" th:if="${user.id}==${clan.owner_id}"></i>
+<!--###########  Second Container  Clan Announcements  #############   -->
+<div class="rpgui-content forceFont">
+    <div class="rpgui-container framed profileContainers removePadding secondContainer">
+        <h2>Announcements <i id="editAnnouncements" class="far fa-edit fa-pull-right faImportant" th:if="${user.id}==${clan.owner_id}"></i></h2>
+        <div id="announcementsHolder">
             <form th:action="@{/clan/announcements/save}" th:method="post">
                 <textarea id="announceText" name="announcements" th:text="${clan.announcements}" readonly="readonly"></textarea>
                 <input type="submit" id="saveAnnouncements" class="btn btn-primary hiddenElement"/>
             </form>
         </div>
-<!--##############  Clan Habits     ##############################################-->
-        <div class="col-sm-4">
-            <div class="col-sm-12">
-                <div id="divClanHabits">
-                     <ul class="list-group fontCinzel">
-                         <li class="list-group-item text-center boldTitle">Clan Habits
-                             <a href="/habits" th:if="${user.id} == ${user.clan.owner_id}">
-                                 <i class="fas fa-plus addClanHabitButton"></i>
-                             </a>
-                         </li>
-                         <li class="list-group-item" th:each="habit : ${habits}">
-                             <span class="habitTitles" th:text="${habit.getBadge().name}"></span>
-                             <small><span th:text="${habit.getUser_amt()}"></span> of <span th:text="${habit.badge.getReq_amt()}"></span>
-                                 <a class="myClanPopover" tabindex="0" role="button" data-toggle="popover3"><i th:attr="data-id=${habit.id}" class="fas fa-plus addClanHabitId"></i></a>
-                             </small>
-                         </li>
-                     </ul>
-                </div>
-            </div>
-            <div id="clanProfilePopover-content" class="hiddenElement">
-                <form th:action="@{/clan/habits/entry}" th:method="post">
-                    <input type="hidden" name="location" value="clan"/>
-                    <input type="hidden" id="clanProfileBadgeId" name="clanBadgeId"/>
-                    Enter Amt: <input type="text" name="amount"/>
-                    <a tabindex="0" class="btn btn-sm btn-danger" role="button" data-dismiss="popover">Close</a>
-                    <input type="submit" value="Save" class="btn btn-primary btn-sm saveClanEntry"/>
-                </form>
-            </div>
-<!--##############  Clan Badges     ####################################  -->
-            <div class="col-sm-12">
-                <div id="clanBadgeHolder" class="card">
-                    <div class="justify-content-between text-center"><h3>Badges: </h3></div>
-                    <div class="card-body">
-                        <div class="justify-content-between">
-                            <i th:each="complete : ${completedHabits}" class="badgeClassClan" th:classappend="${complete.getBadge().iconClasses}"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    </div>
+</div>
+
+
+<!--###########  Third Container  Clan habits  #############   -->
+<div class="rpgui-content forceFont">
+    <div class="rpgui-container framed profileContainers removePadding thirdContainer">
+        <ul class="list-group fontCinzel">
+            <li class="list-group-item removePadding text-center boldTitle">Clan Habits
+                <a href="/habits" th:if="${user.id} == ${user.clan.owner_id}">
+                    <i class="fas fa-plus addClanHabitButton faImportant"></i>
+                </a>
+            </li>
+            <li class="list-group-item removePadding" th:each="habit : ${habits}">
+                <span class="habitTitles" th:text="${habit.getBadge().name}"></span>
+                <small><span th:text="${habit.getUser_amt()}"></span> of <span th:text="${habit.badge.getReq_amt()}"></span>
+                    <a class="myClanPopover" tabindex="0" role="button" data-toggle="popover3"><i th:attr="data-id=${habit.id}" class="fas fa-plus faImportant addClanHabitId"></i></a>
+                </small>
+            </li>
+        </ul>
+    </div>
+</div>
+
+
+<!--###########  Bottom Container  Clan Badges  #############   -->
+<div class="rpgui-content">
+    <div class="rpgui-container framed removePadding clanBadgesContainer">
+        <span id="clanBadgeAlign">*Badges*</span>
+        <div id="clanBadgeDiv">
+            <i th:each="complete : ${completedHabits}" class="badgeClassClan raImportant" th:classappend="${complete.getBadge().iconClasses}"></i>
         </div>
     </div>
+</div>
 
 
+<!--###########  Popover  #############   -->
+<div id="clanProfilePopover-content" class="hiddenElement">
+    <form th:action="@{/clan/habits/entry}" th:method="post">
+        <input type="hidden" name="location" value="clan"/>
+        <input type="hidden" id="clanProfileBadgeId" name="clanBadgeId"/>
+        Enter Amt: <input type="text" name="amount"/>
+        <a tabindex="0" class="btn btn-sm btn-danger" role="button" data-dismiss="popover">Close</a>
+        <input type="submit" value="Save" class="btn btn-primary btn-sm saveClanEntry"/>
+    </form>
+</div>
+
+
+<!--###########  Chat Feature  #############   -->
 <div class="row hiddenElement">
     <div class="col-sm-4">
         <div class="col-sm-12">
