@@ -470,3 +470,7 @@ thead tr *{
     min-width: unset;
     text-align: center;
 }
+#select_avatar, #color_avatar{
+    font-size: 10px;
+    width: 170px;
+}
