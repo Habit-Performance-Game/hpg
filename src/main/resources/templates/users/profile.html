@@ -10,20 +10,79 @@
 </div>
 
 <div class="container">
+
+<!--###########  First Container  Personal habits  #############   -->
+    <div class="rpgui-content forceFont">
+        <div class="rpgui-container framed profileContainers removePadding firstContainer">
+            <ul class="list-group fontCinzel">
+                <li class="list-group-item removePadding text-center boldTitle">Personal Habits</li>
+                <li class="list-group-item removePadding" th:each="habit : ${habits}">
+                    <span class="habitTitles" th:text="${habit.getBadge().name}"></span>
+                    <small><span th:text="${habit.getUser_amt()}"></span> of <span th:text="${habit.badge.getReq_amt()}"></span>
+                        <a class="myPopover" tabindex="0" role="button" data-toggle="popover"><i th:attr="data-id=${habit.id}" class="fas fa-plus addHabitId faImportant"></i></a>
+                    </small>
+                    <i class="fa fa-trash-alt fa-pull-right removeHabit faImportant" aria-hidden="true" th:attr="data-id=${habit.id}"></i>
+                </li>
+            </ul>
+            <div>
+                <a href="/habits"><button class="rpgui-button containerButton" style="float: right; height: 30px;">Get more habits</button></a>
+            </div>
+        </div>
+    </div>
+
+<!--###########  Second Container  Clan habits  #############   -->
+    <div class="rpgui-content forceFont">
+        <div class="rpgui-container framed profileContainers removePadding secondContainer">
+            <ul class="list-group fontCinzel">
+                <li class="list-group-item text-center removePadding boldTitle">My Clan Habits</li>
+                <li class="list-group-item removePadding" th:each="habit : ${clanHabits}">
+                    <span class="habitTitles" th:text="${habit.getBadge().name}"></span>
+                    <small><span th:text="${habit.getUser_amt()}"></span> of <span th:text="${habit.badge.getReq_amt()}"></span>
+                        <a class="myClanPopover" tabindex="0" role="button" data-toggle="popover2"><i th:attr="data-id=${habit.id}" class="fas fa-plus addClanHabitId faImportant"></i></a>
+                    </small>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+<!--###########  Third Container  Personal Info  #############   -->
+    <div class="rpgui-content forceFont">
+        <div class="rpgui-container framed profileContainers removePadding thirdContainer">
+            <div class="">
+                <i th:attr="class=${avatar.url + ' raImportant'}" th:classappend="${user.avatar_color}"/>
+                Username: <span style="font-weight: bold" th:text="${#authentication.principal.username}" />
+            </div>
+            <div>
+                <p>HPG Member since: <span id="memberSince" th:text="${user.getCreated_on().toLocaleString()}"></span></p>
+                Member of Clan: <span th:if="${user.clan} == null"><em>click below to join a clan</em></span>
+                <span th:if="${user.clan} != null" th:text="${user.clan.name}"></span>
+                <br />
+                Badges:
+                <div class="justify-content-between">
+                    <i th:each="complete : ${completedHabits}" class="badgeClass faImportant" th:classappend="${complete.getBadge().iconClasses}"></i>
+                </div>
+            </div>
+            <div>
+                <a href="/clan/join"><button class="rpgui-button containerButton" style="float: right; height: 30px;">Join a Clan</button></a>
+            </div>
+        </div>
+    </div>
+
+
     <div class="row">
         <!--###########  Personal Habits  #############   -->
         <div class="col-sm-6">
             <div id="profileHabits" class="col-sm-12">
-                <ul class="list-group fontCinzel">
-                    <li class="list-group-item text-center boldTitle">Personal Habits</li>
-                    <li class="list-group-item" th:each="habit : ${habits}">
-                        <span class="habitTitles" th:text="${habit.getBadge().name}"></span>
-                        <small><span th:text="${habit.getUser_amt()}"></span> of <span th:text="${habit.badge.getReq_amt()}"></span>
-                            <a class="myPopover" tabindex="0" role="button" data-toggle="popover"><i th:attr="data-id=${habit.id}" class="fas fa-plus addHabitId"></i></a>
-                        </small>
-                        <i class="fa fa-trash-alt fa-pull-right removeHabit" aria-hidden="true" th:attr="data-id=${habit.id}"></i>
-                    </li>
-                </ul>
+                <!--<ul class="list-group fontCinzel">-->
+                    <!--<li class="list-group-item text-center boldTitle">Personal Habits</li>-->
+                    <!--<li class="list-group-item" th:each="habit : ${habits}">-->
+                        <!--<span class="habitTitles" th:text="${habit.getBadge().name}"></span>-->
+                        <!--<small><span th:text="${habit.getUser_amt()}"></span> of <span th:text="${habit.badge.getReq_amt()}"></span>-->
+                            <!--<a class="myPopover" tabindex="0" role="button" data-toggle="popover"><i th:attr="data-id=${habit.id}" class="fas fa-plus addHabitId"></i></a>-->
+                        <!--</small>-->
+                        <!--<i class="fa fa-trash-alt fa-pull-right removeHabit" aria-hidden="true" th:attr="data-id=${habit.id}"></i>-->
+                    <!--</li>-->
+                <!--</ul>-->
 
                 <div id="popover-content" class="hiddenElement">
                     <form th:action="@{/habits/entry}" th:method="post">
@@ -34,22 +93,22 @@
                     </form>
                 </div>
             </div>
-                <div id="getMoreHabitsDivBtn">
-                    <a href="/habits" class="btn btn-primary btn-block">Get more habits</a>
-                </div>
+                <!--<div id="getMoreHabitsDivBtn">-->
+                    <!--<a href="/habits" class="btn btn-primary btn-block">Get more habits</a>-->
+                <!--</div>-->
 
 <!--##################  Clan Habits     ###################-->
-                <div class="col-sm-12" id="profileClanHabits" th:if="${user.clan}!=null">
-                    <ul class="list-group fontCinzel">
-                        <li class="list-group-item text-center boldTitle">My Clan Habits</li>
-                        <li class="list-group-item" th:each="habit : ${clanHabits}">
-                            <span class="habitTitles" th:text="${habit.getBadge().name}"></span>
-                            <small><span th:text="${habit.getUser_amt()}"></span> of <span th:text="${habit.badge.getReq_amt()}"></span>
-                                <a class="myClanPopover" tabindex="0" role="button" data-toggle="popover2"><i th:attr="data-id=${habit.id}" class="fas fa-plus addClanHabitId"></i></a>
-                            </small>
-                        </li>
-                    </ul>
-                </div>
+                <!--<div class="col-sm-12" id="profileClanHabits" th:if="${user.clan}!=null">-->
+                    <!--<ul class="list-group fontCinzel">-->
+                        <!--<li class="list-group-item text-center boldTitle">My Clan Habits</li>-->
+                        <!--<li class="list-group-item" th:each="habit : ${clanHabits}">-->
+                            <!--<span class="habitTitles" th:text="${habit.getBadge().name}"></span>-->
+                            <!--<small><span th:text="${habit.getUser_amt()}"></span> of <span th:text="${habit.badge.getReq_amt()}"></span>-->
+                                <!--<a class="myClanPopover" tabindex="0" role="button" data-toggle="popover2"><i th:attr="data-id=${habit.id}" class="fas fa-plus addClanHabitId"></i></a>-->
+                            <!--</small>-->
+                        <!--</li>-->
+                    <!--</ul>-->
+                <!--</div>-->
 
             <div id="clanPopover-content" class="hiddenElement">
                 <form th:action="@{/clan/habits/entry}" th:method="post">
@@ -61,30 +120,27 @@
                 </form>
             </div>
         </div>
-        <div class="col-sm-6">
-            <div id="profileUserInfo">
-            <div class="card h-75">
-                <div class="justify-content-between">
+        <!--<div class="col-sm-6">-->
+            <!--<div id="profileUserInfo">-->
+            <!--<div class="card h-75">-->
+                <!--<div class="justify-content-between">-->
+                    <!--<i class="card-img-top" th:attr="class=${avatar.url}" th:classappend="${user.avatar_color}"/>-->
+                        <!--Username: <span style="font-weight: bold" th:text="${#authentication.principal.username}" />-->
+                <!--</div>-->
+                <!--<div class="card-body">-->
+                    <!--<p>HPG Member since: <span id="memberSince" th:text="${user.getCreated_on().toLocaleString()}"></span></p>-->
+                    <!--Member of Clan: <span th:if="${user.clan} == null"><em>click below to join a clan</em></span>-->
+                    <!--<span th:if="${user.clan} != null" th:text="${user.clan.name}"></span>-->
+                    <!--<br />-->
+                    <!--Badges:-->
+                    <!--<div class="justify-content-between">-->
+                        <!--<i th:each="complete : ${completedHabits}" class="badgeClass" th:classappend="${complete.getBadge().iconClasses}"></i>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
 
-                    <i class="card-img-top" th:attr="class=${avatar.url}" th:classappend="${user.avatar_color}"/>
-                        Username: <span style="font-weight: bold" th:text="${#authentication.principal.username}" />
-
-
-                </div>
-                <div class="card-body">
-                    <p>HPG Member since: <span id="memberSince" th:text="${user.getCreated_on().toLocaleString()}"></span></p>
-                    Member of Clan: <span th:if="${user.clan} == null"><em>click below to join a clan</em></span>
-                    <span th:if="${user.clan} != null" th:text="${user.clan.name}"></span>
-                    <br />
-                    Badges:
-                    <div class="justify-content-between">
-                        <i th:each="complete : ${completedHabits}" class="badgeClass" th:classappend="${complete.getBadge().iconClasses}"></i>
-                    </div>
-                </div>
-            </div>
-            </div>
-            <a href="/clan/join" class="btn btn-primary btn-block">Join a Clan</a>
-        </div>
+            <!--<a href="/clan/join" class="btn btn-primary btn-block">Join a Clan</a>-->
+        <!--</div>-->
     </div>
 </div>
 <div th:replace="partials/jsScripts :: scripts"></div>
