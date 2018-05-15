@@ -48,6 +48,10 @@ public class UserController {
         model.addAttribute("user",userDao.findOne(user.getId()));
         return "home";}
 
+    //about us page
+    @GetMapping("/about")
+    public String showAboutPage(){ return "about"; }
+
     //get register page
     @GetMapping("/register")
     public String showRegisterForm(Model model){
