@@ -85,7 +85,7 @@
                     <a class="" href="/register">Register</a>
                 </li>
                 <li class="nav-li" sec:authorize="!isAuthenticated()">
-                    <a href="/about">About</a>
+                    <a href="/aboutUs">About</a>
                 </li>
                 <li id="logoff-li">
                 <form class="form-inline my-2 my-lg-0" sec:authorize="isAuthenticated()" th:action="@{/logout}" th:method="post">
