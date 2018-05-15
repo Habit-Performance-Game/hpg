@@ -452,3 +452,7 @@ thead tr *{
     top: 28vh;
     color: white;
 }
+#noHeight{
+    bottom: 0 !important;
+    /*height: 0 !important;*/
+}
