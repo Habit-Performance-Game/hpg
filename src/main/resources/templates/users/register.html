@@ -43,11 +43,11 @@
                 <div class="col-sm-6">
                     <div class="col-sm-12">
                         <select class="form-control" name="select_avatar" id="select_avatar" th:field="*{avatar}">
-                            <option disabled="disabled" value="1" selected="selected">Select an Avatar.</option>
+                            <option value="1" selected="selected" disabled="disabled">Choose Avatar.</option>
                              <option th:each="avatar : ${avatars}" th:attr="value=${avatar.id}, data-url=${avatar.url}"><span th:text="${avatar.name}"></span></option>
                         </select>
                             <select class="form-control" name="color_avatar" id="color_avatar" th:field="*{avatar_color}">
-                            <option disabled="disabled" value="1" selected="selected">Select an Avatar color.</option>
+                            <option disabled="disabled" value="1" selected="selected">Choose color.</option>
                             <option value="black" data-path="black" >Black</option>
                             <option value="blue" data-path="blue">Blue</option>
                             <option value="green" data-path="green">Green</option>
@@ -72,5 +72,11 @@
 
 <footer th:replace="partials/footer :: footer"></footer>
 <script src="/js/registerPageJS.js"></script>
+<script>
+    $('#username, #email, #password, #repeatPassword').focus(function(){
+        $(this).css('color','white');
+        $(this).css('background-color','#4e494e');
+    })
+</script>
 </body>
 </html>
