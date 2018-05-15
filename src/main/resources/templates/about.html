@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head th:replace="partials/header :: header('Home')">
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+</head>
+<body class="bod-color">
+<nav th:replace="partials/navbar :: navbar"></nav>
+<!--<div class="jumbotron jumbotron-fluid text-center hero" >-->
+<!--<div class="">-->
+<!--<div class="header">-->
+<!--<h1 class="display-3">Habit Performance Game</h1>-->
+<!--<i class="ra ra-monster-skull fa-5x"></i>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<div class="container">
+    <div class="row">
+        <img src="/images/HPGLIFE-1.png" alt="" id="home-pic"/>
+    </div>
+    <div class="row">
+        <div class="col-sm-10 offset-sm-1">
+            <div class="card-deck">
+                <div class="card">
+                    <img class="card-img-top headshot" src=".../100px200/" alt="Card image cap"/>
+                    <div class="card-body">
+                        <h5 class="card-title">Chanel Rodriguez</h5>
+                        <p class="card-text"></p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img class="card-img-top" src=".../100px200/" alt="Card image cap"/>
+                    <div class="card-body">
+                        <h5 class="card-title">David Alexander</h5>
+                        <p class="card-text">This is David.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <img class="card-img-top headshot" src="/images/ZachRamos3.jpg" alt="Card image cap"/>
+                    <div class="card-body">
+                        <h5 class="card-title">Zachary Ramos</h5>
+                        <p class="card-text"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

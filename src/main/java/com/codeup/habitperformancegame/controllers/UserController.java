@@ -49,11 +49,7 @@ public class UserController {
         return "home";}
 
     @GetMapping("/aboutUs")
-    public String showAboutUs(Model model){
-            User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-            model.addAttribute("user",userDao.findOne(user.getId()));
-            return "aboutUs";
-    }
+    public String showAboutUs(){ return "aboutUs"; }
 
     //get register page
     @GetMapping("/register")

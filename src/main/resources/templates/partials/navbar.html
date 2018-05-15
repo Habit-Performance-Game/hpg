@@ -64,31 +64,34 @@
                 <!--<li class="nav-li"><a href="default.asp">Home</a></li>-->
                 <ul class="navbar-nav mr-auto">
                 <li class="nav-li">
-                <a class="" href="/">Home <span class="sr-only">(current)</span></a>
+                    <a class="" href="/">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-li" sec:authorize="isAuthenticated()">
-                <a class="" href="/profile">Profile</a>
+                    <a class="" href="/profile">Profile</a>
                 </li>
                 <li class="nav-li" sec:authorize="isAuthenticated()" th:if="${user.clan} != null">
-                <a class="" th:href="@{'/clan/' + ${user.clan.id}}">Clan</a>
+                    <a class="" th:href="@{'/clan/' + ${user.clan.id}}">Clan</a>
                 </li>
                 <li class="nav-li" sec:authorize="isAuthenticated()" th:if="${user.clan} == null">
-                <a class="" href="/clan/join">Clan</a>
+                    <a class="" href="/clan/join">Clan</a>
                 </li>
                 <li class="nav-li" sec:authorize="isAuthenticated()">
-                <a class="" href="/messages">Messages</a>
+                    <a class="" href="/messages">Messages</a>
                 </li>
                 <li class="nav-li" sec:authorize="!isAuthenticated()">
-                <a class="" href="/login">Login</a>
+                    <a class="" href="/login">Login</a>
                 </li>
                 <li class="nav-li" sec:authorize="!isAuthenticated()">
-                <a class="" href="/register">Register</a>
+                    <a class="" href="/register">Register</a>
                 </li>
-                    <li id="logoff-li">
-                    <form class="form-inline my-2 my-lg-0" sec:authorize="isAuthenticated()" th:action="@{/logout}" th:method="post">
-                        <button class="rpgui-button" style="float: right; height: 30px;">Logout</button>
-                    </form>
-                    </li>
+                <li class="nav-li" sec:authorize="!isAuthenticated()">
+                    <a href="/aboutUs">About</a>
+                </li>
+                <li id="logoff-li">
+                <form class="form-inline my-2 my-lg-0" sec:authorize="isAuthenticated()" th:action="@{/logout}" th:method="post">
+                    <button class="rpgui-button" style="float: right; height: 30px;">Logout</button>
+                </form>
+                </li>
                 </ul>
             </ul>
         </div>

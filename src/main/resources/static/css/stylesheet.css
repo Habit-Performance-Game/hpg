@@ -313,6 +313,7 @@ li a:hover {
     font-size: 1.2em !important;
 }
 
+
 .selectRPG * {
     font-family: RPGAwesome !important;
 }
@@ -323,6 +324,38 @@ li a:hover {
     margin-top: 10px;
 }
 
+/************************About Us page***************************/
+.about-card{
+    float: left;
+}
+.cards{
+    height: 100%;
+}
+
+.chanel{
+    background-position-x: 25% !important;
+    position: unset;
+    width: 30%;
+    margin-left: 50px;
+}
+
+.david{
+    background-position-x: center !important;
+    position: unset;
+    width: 30%;
+}
+
+.zach{
+    background-position-x: 75% !important;
+    position: unset;
+    width: 30%;
+}
+
+.headshot{
+    height: 200px;
+    width: 300px;
+    margin-left: 15px;
+}
 
 
 
