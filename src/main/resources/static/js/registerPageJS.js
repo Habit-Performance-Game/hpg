@@ -42,3 +42,7 @@ $('#color_avatar').change(function() {
     $("#display-avatar").removeAttr("color");
     $("#display-avatar").css("color", $("#color_avatar option:selected").attr("data-path"));
 });
+
+$(document).ready(function(){
+    $('.freeze').attr('disabled','disabled');
+})

@@ -59,7 +59,7 @@
                 <br />
                 Badges:
                 <div class="justify-content-between">
-                    <i th:each="complete : ${completedHabits}" class="badgeClass faImportant" th:classappend="${complete.getBadge().iconClasses}"></i>
+                    <i th:each="complete : ${completedHabits}" class="badgeClass raImportant" th:classappend="${complete.getBadge().iconClasses}"></i>
                 </div>
             </div>
             <div>
@@ -88,8 +88,8 @@
                     <form th:action="@{/habits/entry}" th:method="post">
                         <input type="hidden" id="userBadgeId" name="userBadgeId"/>
                         Enter Amt: <input class="amountInput" type="text" name="amount"/>
-                        <a tabindex="0" class="btn btn-sm btn-danger" role="button" data-dismiss="popover">Close</a>
-                        <input type="submit" value="Save" class="btn btn-primary btn-sm saveEntry"/>
+                        <a tabindex="0" class="btn btn-sm closePop" role="button" data-dismiss="popover"><input value="Close" class="rpgui-button popBtn"/></a>
+                        <input type="submit" value="Save" class="rpgui-button popBtn saveEntry"/>
                     </form>
                 </div>
             </div>
@@ -115,8 +115,8 @@
                     <input type="hidden" name="location" value="profile"/>
                     <input type="hidden" id="clanBadgeId" name="clanBadgeId"/>
                     Enter Amt: <input type="text" name="amount"/>
-                    <a tabindex="0" class="btn btn-sm btn-danger" role="button" data-dismiss="popover">Close</a>
-                    <input type="submit" value="Save" class="btn btn-primary btn-sm saveClanEntry"/>
+                    <a tabindex="0" class="btn btn-sm closePop" role="button" data-dismiss="popover"><input value="Close" class="popBtn rpgui-button"/></a>
+                    <input type="submit" value="Save" class="rpgui-button popBtn saveClanEntry"/>
                 </form>
             </div>
         </div>
