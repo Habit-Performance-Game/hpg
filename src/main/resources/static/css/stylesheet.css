@@ -496,8 +496,9 @@ thead tr *{
 }
 
 .joinContainer{
-    width: 41vw;
-    font-size: 1.6vw;
+    width: 36vw;
+    font-size: 1.4vw;
+    max-width: 600px;
 }
 .bold{
     font-weight: bold;
