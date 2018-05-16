@@ -347,7 +347,7 @@ li a:hover {
     background-position-x: 25% !important;
     position: unset;
     width: 30%;
-    margin-left: 50px;
+    margin-left: 5em;
 }
 
 .david{
@@ -365,7 +365,11 @@ li a:hover {
 .headshot{
     height: 200px;
     width: 300px;
-    margin-left: 15px;
+    margin-left: 1em;
+}
+
+.link-icons{
+    color: azure;
 }
 
 
@@ -383,6 +387,10 @@ li a:hover {
 .faImportant{
     font-family: Font Awesome\ 5 Free !important;
 }
+.fabImportant{
+    font-family: Font Awesome\ 5 Brands !important;
+}
+
 .raImportant{
     font-family: RPGAwesome !important;
 }
