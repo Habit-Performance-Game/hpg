@@ -456,10 +456,10 @@ thead tr *{
     bottom: 0 !important;
     /*height: 0 !important;*/
 }
-.popover-header, .popover-body{
+.popover-header, .popover-body, .modal-header, .modal-body{
     font-weight: bold;
 }
-.popover-body{
+.popover-body, .modal-body, .modal-footer{
     background-color: #79cafa;
 }
 .popBtn{
@@ -473,4 +473,12 @@ thead tr *{
 #select_avatar, #color_avatar{
     font-size: 10px;
     width: 170px;
+}
+
+.joinContainer{
+    width: 41vw;
+    font-size: 1.6vw;
+}
+.bold{
+    font-weight: bold;
 }
