@@ -8,7 +8,7 @@
 <div class="row">
 
 <div class="col-sm-6">
-    <h1>Join a Clan!!</h1>
+    <h1 class="bold">Join a Clan!</h1>
     <p th:if="${user.clan}==null">
         You are not part of a clan.
     </p>
@@ -17,24 +17,30 @@
         <!--<p sec:authorize="isAuthenticated()">clanName: <span th:text="${#authentication.principal.clan.name}" /></p>-->
     </p>
 
-    <p>Here is a list of the current clans</p>
-    <!---->
-    <ul class="list-group">
-        <li th:each="clan : ${clans}" class="list-group-item d-flex justify-content-between align-items-center">
-            <a href="" class="listOfClans" th:text="${clan.name}"></a>
-            <small><span th:text="${clan.users.size()}"></span> Members <i th:attr="data-id=${clan.id},data-name=${clan.name}" class="fas fa-user-plus iJoinClan"></i></small>
-        </li>
-    </ul>
+
+    <!--###########  Second Container  Clan habits  #############   -->
+    <div class="rpgui-content forceFont">
+        <div class="rpgui-container framed joinContainer">
+            <p class="text-center">Here is a list of the current clans</p>
+            <ul class="list-group">
+                <li th:each="clan : ${clans}" class="list-group-item d-flex justify-content-between align-items-center">
+                    <a href="" class="listOfClans" th:text="${clan.name}"></a>
+                    <small><span th:text="${clan.users.size()}"></span> Members <i th:attr="data-id=${clan.id},data-name=${clan.name}" class="fas fa-user-plus iJoinClan faImportant"></i></small>
+                </li>
+            </ul>
+        </div>
+    </div>
+
 
 </div>
 
 <div class="col-sm-6">
-    <h1>Create your own Clan!</h1>
+    <h1 class="bold">Create a Clan!</h1>
     <p>
         Have a group of friends that you want to work with to achieve new badges? This is how you can all
         link up. Click below to create your own Clan!
     </p>
-    <button id="openCreateClanForm">Create Clan</button>
+    <button id="openCreateClanForm" class="rpgui-button">Create Clan</button>
     <div class="hiddenElement" th:replace="clans/create :: createClan"></div>
 
 </div>
@@ -56,8 +62,8 @@
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button id="submitJoinClan" type="button" class="btn btn-primary">Save changes</button>
+                    <button type="button" class=".popBtn rpgui-button" data-dismiss="modal">Close</button>
+                    <button id="submitJoinClan" type="button" class=".popBtn rpgui-button">Save changes</button>
                 </div>
             </div>
         </div>
