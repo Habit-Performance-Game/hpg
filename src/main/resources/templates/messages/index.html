@@ -31,10 +31,10 @@
                 </thead>
                 <tbody>
                 <tr th:each="message,iterStat : ${user.messages}">
-                    <th class="messageNumber" scope="row" th:text="${iterStat.count}"></th>
+                    <th class="messageNumber whiteFont" scope="row" th:text="${iterStat.count}"></th>
                     <td><a th:href="@{'/messages/' + ${message.id}}" th:text="${message.title}"></a></td>
-                    <td th:text="${message.created_by.username}"></td>
-                    <td th:text="${message.created_on}"></td>
+                    <td class="whiteFont" th:text="${message.created_by.username}"></td>
+                    <td class="whiteFont" th:text="${message.created_on}"></td>
                 </tr>
                 </tbody>
             </table>

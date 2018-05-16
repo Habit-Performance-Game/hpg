@@ -503,3 +503,6 @@ thead tr *{
 .bold{
     font-weight: bold;
 }
+.whiteFont{
+    color: white;
+}
