@@ -188,6 +188,18 @@ body{
     color: silver;
 }
 
+.brown{
+    color: saddlebrown;
+}
+
+.darkGold {
+    color: darkgoldenrod;
+}
+
+#bold {
+    font-weight: bold;
+}
+
 .rpgBrown * {
     background-color: #d27d2c !important;
     border: 0px !important;
